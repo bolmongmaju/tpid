@@ -62,6 +62,7 @@
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$post->user->name}}</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ \Carbon\Carbon::parse($post->created_at)->diffForhumans() }}</time></a></li>
+
                 </ul>
               </div>
 
@@ -143,11 +144,10 @@
     @include('opd.layout.footer')
   </footer><!-- End Footer -->
 
-  {{-- <div id="preloader"></div> --}}
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  @include('opd.layout.head')
+  @include('opd.layout.script')
 
 </body>
 

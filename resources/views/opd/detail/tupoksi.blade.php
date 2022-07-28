@@ -132,7 +132,7 @@
          <ol>
            <li><a href="index.html">Home</a></li>
          </ol>
-         <h2>Visi dan Misi</h2>
+         <h2>Tupoksi</h2>
  
        </div>
      </section><!-- End Breadcrumbs -->
@@ -142,7 +142,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Visi</h2>
+          <h2>tupoksi</h2>
         </div>
 
         <div class="row content">
@@ -150,22 +150,6 @@
             @forelse($visimisi as $item)
             <p>
               {!! nl2br(($item->visi)) !!}
-            </p>
-            @empty
-              Belum ada data
-            @endforelse
-          </div>
-        </div>
-
-        <div class="section-title mt-5">
-          <h2>Misi</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-12">
-            @forelse($visimisi as $item)
-            <p>
-              {!! nl2br(($item->misi)) !!}
             </p>
             @empty
               Belum ada data
