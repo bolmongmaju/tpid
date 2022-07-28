@@ -180,15 +180,14 @@
    </main><!-- End #main -->
  
    <!-- ======= Footer ======= -->
-   <footer id="footer">
-     @include('opd.layout.footer')
-   </footer><!-- End Footer -->
- 
-   {{-- <div id="preloader"></div> --}}
-   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
- 
-   <!-- Vendor JS Files -->
-   @include('opd.layout.head')
+  <footer id="footer">
+    @include('opd.layout.footer')
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  @include('opd.layout.script')
  
  </body>
  
