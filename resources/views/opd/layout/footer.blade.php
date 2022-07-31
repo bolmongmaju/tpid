@@ -14,6 +14,7 @@
   </div>
 </div>
 
+@foreach ($kontak as $item)
 <div class="footer-top">
   <div class="container">
     <div class="row">
@@ -41,11 +42,9 @@
       </div>
 
       <div class="col-lg-3 col-md-6 footer-contact">
-        <h4>Contact Us</h4>
+        <h4>Kontak</h4>
         <p>
-          A108 Adam Street <br>
-          New York, NY 535022<br>
-          United States <br><br>
+          {{$item->email}} <br><br>
           <strong>Phone:</strong> +1 5589 55488 55<br>
           <strong>Email:</strong> info@example.com<br>
         </p>
@@ -67,6 +66,7 @@
     </div>
   </div>
 </div>
+@endforeach
 
 <div class="container">
   <div class="copyright">
