@@ -40,10 +40,16 @@ class PageController extends Controller
         return view('bolmongkab/detail/agenda-detail',compact('events'));
     }
 
+    public function program(){
+        $program = Profile::take(1)->latest()->get();
+        return view('opd/detail/program',compact('program'));
+    }
+
     public function visimisi(){
         $visimisi = Profile::take(1)->latest()->get();
         return view('opd/detail/visimisi',compact('visimisi'));
     }
+
     public function foto(){
         $foto = Photo::latest()->paginate(12);
         return view('opd/detail/foto',compact('foto'));

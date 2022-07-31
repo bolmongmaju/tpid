@@ -87,6 +87,17 @@
                         </div>
 
                         <div class="form-group">
+                            <label>PROGRAM DAN KEGIATAN</label>
+                            <textarea class="form-control content @error('dasar_hukum') is-invalid @enderror" name="program"
+                                placeholder="Masukkan Program dan Kegiatan" rows="10">{!! old('program') !!}</textarea>
+                            @error('program')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>DASAR HUKUM</label>
                             <textarea class="form-control content @error('dasar_hukum') is-invalid @enderror" name="dasar_hukum"
                                 placeholder="Masukkan Dasar Hukum" rows="10">{!! old('dasar_hukum') !!}</textarea>

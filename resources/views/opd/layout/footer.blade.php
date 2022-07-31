@@ -2,18 +2,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <h4>Our Newsletter</h4>
-        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+        <h4>Cari Berita</h4>
+        <p>Cari Berita Disini</p>
       </div>
       <div class="col-lg-6">
         <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Subscribe">
+          <input type="email" name="email"><input type="submit" value="Cari">
         </form>
       </div>
     </div>
   </div>
 </div>
 
+@foreach ($kontak as $item)
 <div class="footer-top">
   <div class="container">
     <div class="row">
@@ -41,11 +42,9 @@
       </div>
 
       <div class="col-lg-3 col-md-6 footer-contact">
-        <h4>Contact Us</h4>
+        <h4>Kontak</h4>
         <p>
-          A108 Adam Street <br>
-          New York, NY 535022<br>
-          United States <br><br>
+          {{$item->email}} <br><br>
           <strong>Phone:</strong> +1 5589 55488 55<br>
           <strong>Email:</strong> info@example.com<br>
         </p>
@@ -67,6 +66,7 @@
     </div>
   </div>
 </div>
+@endforeach
 
 <div class="container">
   <div class="copyright">
