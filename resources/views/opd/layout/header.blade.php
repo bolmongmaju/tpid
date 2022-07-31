@@ -12,7 +12,7 @@
           <li><a class="{{ (request()->is('struktur')) ? 'active' : '' }}" href="{{ ('/struktur') }}">Struktur Organisasi</a></li>
           <li><a class="{{ (request()->is('visi-misi')) ? 'active' : '' }}" href="{{ ('/visi-misi') }}">Visi dan Misi</a></li>
           <li><a href="#">Tupoksi</a></li>
-          <li><a href="#">Program dan Kegiatan</a></li>
+          <li><a class="{{ (request()->is('program-dan-kegiatan,')) ? 'active' : '' }}" href="{{ ('program-dan-kegiatan') }}">Program dan Kegiatan</a></li>
           <li><a href="#">Daftar Pegawai</a></li>
         </ul>
       </li>
