@@ -31,7 +31,7 @@
                             <thead>
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                <th scope="col">NAMA KECAMATAN</th>
+                                <th scope="col">NAMA OPD</th>
                                 <th scope="col">LOGO</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>

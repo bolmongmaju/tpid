@@ -76,118 +76,38 @@
       </div>
     </section><!-- End Icon Boxes Section -->
 
-    <!-- ======= Blog Section ======= -->
-    <div id="blog" class="blog-area">
-      <div class="blog-inner area-padding">
-        <div class="blog-overly"></div>
-        <div class="container ">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="section-headline text-center">
-                <h2>Latest News</h2>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Start Left Blog -->
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="single-blog">
-                <div class="single-blog-img">
-                  <a href="blog.html">
-                    <img src="{{ asset('assets-opd/img/blog/1.jpg') }}" alt="">
-                  </a>
-                </div>
-                <div class="blog-meta">
-                  <span class="comments-type">
-                    <i class="fa fa-comment-o"></i>
-                    <a href="#">13 comments</a>
-                  </span>
-                  <span class="date-type">
-                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                  </span>
-                </div>
-                <div class="blog-text">
-                  <h4>
-                    <a href="blog.html">Assumenda repud eum veniam</a>
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                  </p>
-                </div>
-                <span>
-                  <a href="blog.html" class="ready-btn">Read more</a>
-                </span>
-              </div>
-              <!-- Start single blog -->
-            </div>
-            <!-- End Left Blog-->
-            <!-- Start Left Blog -->
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="single-blog">
-                <div class="single-blog-img">
-                  <a href="blog.html">
-                    <img src="{{ asset('assets-opd/img/blog/2.jpg') }}" alt="">
-                  </a>
-                </div>
-                <div class="blog-meta">
-                  <span class="comments-type">
-                    <i class="fa fa-comment-o"></i>
-                    <a href="#">130 comments</a>
-                  </span>
-                  <span class="date-type">
-                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                  </span>
-                </div>
-                <div class="blog-text">
-                  <h4>
-                    <a href="blog.html">Explicabo magnam quibusdam.</a>
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                  </p>
-                </div>
-                <span>
-                  <a href="blog.html" class="ready-btn">Read more</a>
-                </span>
-              </div>
-              <!-- Start single blog -->
-            </div>
-            <!-- End Left Blog-->
-            <!-- Start Right Blog-->
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="single-blog">
-                <div class="single-blog-img">
-                  <a href="blog.html">
-                    <img src="{{ asset('assets-opd/img/blog/3.jpg') }}" alt="">
-                  </a>
-                </div>
-                <div class="blog-meta">
-                  <span class="comments-type">
-                    <i class="fa fa-comment-o"></i>
-                    <a href="#">10 comments</a>
-                  </span>
-                  <span class="date-type">
-                    <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                  </span>
-                </div>
-                <div class="blog-text">
-                  <h4>
-                    <a href="blog.html">Lorem ipsum dolor sit amet</a>
-                  </h4>
-                  <p>
-                    Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                  </p>
-                </div>
-                <span>
-                  <a href="blog.html" class="ready-btn">Read more</a>
-                </span>
-              </div>
-            </div>
-            <!-- End Right Blog-->
-          </div>
+     <!-- ======= Recent Blog Posts Section ======= -->
+     <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Berita</h2>
+          <p>Berita Terbaru Ditambahkan</p>
         </div>
+
+        <div class="row">
+
+          @foreach ($posts as $post)
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img src="{{ $post->image}}" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">{{ \Carbon\Carbon::parse($post->created_at)->diffForhumans() }}</span>
+                <span class="post-author"> / {{ $post->user->name }}</span>
+              </div>
+              <h3 class="post-title-recent">{{ $post->title }} </h3>
+              <p class="recent-blog-body">{{ strip_tags($post->body) }}</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          @endforeach
+
+        </div>
+
       </div>
-    </div><!-- End Blog Section -->
+
+    </section><!-- End Recent Blog Posts Section -->
 
   </main><!-- End #main -->
 

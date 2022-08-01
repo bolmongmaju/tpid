@@ -34,7 +34,7 @@
                 <ol>
                     <li><a href="index.html">Home</a></li>
                 </ol>
-                <h2>Tupoksi</h2>
+                <h2>Daftar Pegawai</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->
@@ -44,14 +44,14 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Tupoksi</h2>
+                    <h2>Daftar Pegawai</h2>
                 </div>
 
                 <div class="row content">
                     <div class="col-lg-12">
-                        @forelse($tupoksi as $item)
+                        @forelse($pegawai as $item)
                         <p>
-                            {!! nl2br(($item->tupoksi)) !!}
+                            {!! nl2br(($item->pegawai)) !!}
                         </p>
                         @empty
                         Belum ada data
