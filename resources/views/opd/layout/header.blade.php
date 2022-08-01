@@ -20,8 +20,8 @@
       <li><a href="{{ ('/berita') }}" class="{{ (request()->is('/berita')) ? 'active' : '' }}">Berita</a></li>
       <li class="dropdown"><a href="#"><span>Galeri</span> <i class="bi bi-chevron-down"></i></a>
         <ul>
-          <li><a href="#">Gambar</a></li>
-          <li><a href="#">Video</a></li>
+          <li><a class="{{ (request()->is('foto')) ? 'active' : '' }}" href="{{ ('foto') }}">Gambar</a></li>
+          <li><a class="{{ (request()->is('video')) ? 'active' : '' }}" href="{{ ('video') }}">Video</a></li>
         </ul>
       </li>
     </ul>

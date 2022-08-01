@@ -56,14 +56,14 @@
           <div>
 
             <div class="row" style="margin-top: 2%;">
-              <div class="col d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="col" data-aos="fade-up" data-aos-delay="100">
                 <div class="dua-layanan">
                   {{-- <i class="bi bi-card-checklist"></i> --}}
                   <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
                   <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
                 </div>
               </div>
-              <div class="col d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="col" data-aos="fade-up" data-aos-delay="100">
                 <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
                   {{-- <i class="bi bi-card-checklist"></i> --}}
                   <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
@@ -117,19 +117,20 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
               {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
-              <h4 class="title"><a href="">{{$item->title}}</a></h4>
-              <p class="description">{{ strip_tags($item->content ) }}</p>
+              <h4 class="title"><a href="{{ route('event-detail', $item->id) }}">{{$item->title}}</a></h4>
+              <p class="description">{{ strip_tags($item->date ) }}</p>
             </div>
           </div>
+          @empty
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <h4 class="title">Tidak ada agenda</h4>
+              <p class="description">Agenda untuk saat ini tidak ada</p>
             </div>
           </div>
         </div>
+        @endforelse
 
       </div>
     </section><!-- End Icon Boxes Section -->
