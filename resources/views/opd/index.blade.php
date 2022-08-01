@@ -88,7 +88,9 @@
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown"><span>{{$item->title}}</span></h2>
+          <h2 class="animate__animated animate__fadeInDown">Organisasi Kepegawaian (ORPEG)</span></h2>
+          <p class="animate__animated animate__fadeInUp">Selamat Datang Di Website Resmi Organisasi Kepegawaian (ORPEG) Kabupaten Bolaang Mongondow</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
         </div>
       </div>
 
@@ -120,18 +122,13 @@
             </div>
           </div>
 
-          @empty
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Belum ada agenda</a></h4>
-              <p class="description">Tidak ada agenda baru</p>
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
-
-          @endforelse
-
-
         </div>
 
       </div>

@@ -15,11 +15,11 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.event.store') }}" method="POST">
+                        <form action="{{ route('admin.event.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
-                                <label>JUDUL AGENDA</label>
+                                <label>JUDUL</label>
                                 <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan Judul Agenda" class="form-control @error('title') is-invalid @enderror">
 
                                 @error('title')
@@ -27,6 +27,44 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>HARI</label>
+                                        <select class="custom-select" id="hari" name="hari" @error('hari') is-invalid @enderror>
+                                            <option value="">Pilih Hari</option>
+                                            <option value="minggu">Minggu</option>
+                                            <option value="senin">Senin</option>
+                                            <option value="selasa">Selasa</option>
+                                            <option value="rabu">Rabu</option>
+                                            <option value="kamis">Kamis</option>
+                                            <option value="jumat">Jumat</option>
+                                            <option value="sabtu">Sabtu</option>
+                                        </select>
+
+                                        @error('hari')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Jam</label>
+                                        <input type="time" name="time" value="{{ old('time') }}" class="form-control @error('time') is-invalid @enderror">
+        
+                                        @error('time')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div class="row">
@@ -60,6 +98,17 @@
                                 <label>ISI AGENDA</label>
                                 <textarea class="form-control content @error('content') is-invalid @enderror" name="content" placeholder="Masukkan Konten / Isi Agenda" rows="10">{!! old('content') !!}</textarea>
                                 @error('content')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>GAMBAR</label>
+                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+
+                                @error('image')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>

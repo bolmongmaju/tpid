@@ -52,18 +52,28 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title'     => 'required|unique:events,title',
-            'content'   => 'required',
-            'location'  => 'required',
-            'date'      => 'required'
+            'title'    => 'required|unique:events,title',
+            'hari'     => 'required',
+            'time'     => 'required',
+            'location' => 'required',
+            'date'     => 'required',
+            'image'    => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
+        if ($request->file('image')) {
+            $image = $request->file('image')->store('assets/event', 'public');
+        }
+
         $event = Event::create([
-            'title'     => $request->input('title'),
-            'slug'      => strtolower(Str::slug($request->input('title') . '-' . time())),
-            'content'   => $request->input('content'),
-            'location'  => $request->input('location'),
-            'date'      => $request->input('date')
+            'title'    => $request->input('title'),
+            'slug'     => strtolower(Str::slug($request->input('title') . '-' . time())),
+            'content'  => $request->input('content'),
+            'location' => $request->input('location'),
+            'date'     => $request->input('date'),
+            'hari'     => $request->input('hari'),
+            'time'     => $request->input('time'),
+            'image'    => ($request->file('image')) ? $image : null,
+            'status'   => 'Y',
         ]);
 
         if ($event) {
@@ -83,7 +93,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('admin.event.edit', compact('event'));
+        $events = [
+            'minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'
+        ];
+        return view('admin.event.edit', compact('event', 'events'));
     }
 
     /**
@@ -97,18 +110,27 @@ class EventController extends Controller
     {
         $this->validate($request, [
             'title'    => 'required|unique:events,title,' . $event->id,
-            'content'  => 'required',
+            'hari'     => 'required',
+            'time'     => 'required',
             'location' => 'required',
-            'date'     => 'required'
+            'date'     => 'required',
+            'image'    => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        if ($request->file('image')) {
+            $image = $request->file('image')->store('assets/event', 'public');
+        }
 
         $event = Event::findOrFail($event->id);
         $event->update([
-            'title'     => $request->input('title'),
-            'slug'      => strtolower(Str::slug($request->input('title') . '-' . time())),
-            'content'   => $request->input('content'),
-            'location'  => $request->input('location'),
-            'date'      => $request->input('date')
+            'title'    => $request->input('title'),
+            'slug'     => strtolower(Str::slug($request->input('title') . '-' . time())),
+            'content'  => $request->input('content'),
+            'location' => $request->input('location'),
+            'date'     => $request->input('date'),
+            'hari'     => $request->input('hari'),
+            'time'     => $request->input('time'),
+            'image'    => ($request->file('image')) ? $image : $event->image
         ]);
 
         if ($event) {

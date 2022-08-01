@@ -39,7 +39,7 @@
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">JUDUL AGENDA</th>
                                 <th scope="col">LOKASI</th>
-                                <th scope="col">TANGGAL</th>
+                                <th scope="col">WAKTU</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -49,7 +49,7 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($events->currentPage()-1) * $events->perPage() }}</th>
                                     <td>{{ $event->title }}</td>
                                     <td>{{ $event->location }}</td>
-                                    <td>{{ $event->date }}</td>
+                                    <td>{{ Str::ucfirst($event->hari) }}, {{ $event->date }}<br>Pukul {{ $event->time }} - Selesai WITA</td>
                                     <td class="text-center">
                                         @can('events.edit')
                                             <a href="{{ route('admin.event.edit', $event->id) }}" class="btn btn-sm btn-primary">

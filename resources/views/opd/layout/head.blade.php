@@ -28,10 +28,3 @@
 
 <!-- Template Main CSS File -->
 <link href="{{ asset('assets-opd/css/style.css') }}" rel="stylesheet">
-
-<!-- =======================================================
-* Template Name: Anyar - v4.8.0
-* Template URL: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
