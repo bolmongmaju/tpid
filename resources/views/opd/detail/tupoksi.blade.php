@@ -49,9 +49,9 @@
 
                 <div class="row content">
                     <div class="col-lg-12">
-                        @forelse($Tupoksi as $item)
+                        @forelse($tupoksi as $item)
                         <p>
-                            {!! nl2br(($item->program)) !!}
+                            {!! nl2br(($item->tupoksi)) !!}
                         </p>
                         @empty
                         Belum ada data
