@@ -93,6 +93,39 @@
       </div>
     </section><!-- End Icon Boxes Section -->
 
+     <!-- ======= Recent Blog Posts Section ======= -->
+     <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Berita</h2>
+          <p>Berita Terbaru Ditambahkan</p>
+        </div>
+
+        <div class="row">
+
+          @foreach ($posts as $post)
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <div class="post-img"><img src="{{ $post->image}}" class="img-fluid" alt=""></div>
+              <div class="meta">
+                <span class="post-date">{{ \Carbon\Carbon::parse($post->created_at)->diffForhumans() }}</span>
+                <span class="post-author"> / {{ $post->user->name }}</span>
+              </div>
+              <h3 class="post-title-recent">{{ $post->title }} </h3>
+              <p class="recent-blog-body">{{ strip_tags($post->body) }}</p>
+              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          @endforeach
+
+        </div>
+
+      </div>
+
+    </section><!-- End Recent Blog Posts Section -->
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

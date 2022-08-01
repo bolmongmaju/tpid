@@ -25,7 +25,7 @@ class PageController extends Controller
 {
     public function index(){
         $postssatu = News::with('tags')->take(1)->latest()->get();
-        $posts = News::with('tags')->take(2)->latest()->get();
+        $posts = News::with('tags')->take(3)->latest()->get();
         $infografis = Infografis::take(4)->latest()->get();
         $postskegiatan = Category::where('name','kegiatan')->with('news')->take(4)->latest()->get();
         $events = Event::take(2)->latest()->get();
@@ -43,6 +43,16 @@ class PageController extends Controller
     public function program(){
         $program = Profile::take(1)->latest()->get();
         return view('opd/detail/program',compact('program'));
+    }
+
+    public function pegawai(){
+        $pegawai = Profile::take(1)->latest()->get();
+        return view('opd/detail/pegawai',compact('pegawai'));
+    }
+
+    public function tupoksi(){
+        $tupoksi = Profile::take(1)->latest()->get();
+        return view('opd/detail/tupoksi',compact('tupoksi'));
     }
 
     public function visimisi(){

@@ -87,6 +87,28 @@
                         </div>
 
                         <div class="form-group">
+                            <label>DAFTAR PEGAWAI</label>
+                            <textarea class="form-control content @error('pegawai') is-invalid @enderror" name="pegawai"
+                                placeholder="Masukkan Daftar Pegawai" rows="10">{!! old('pegawai') !!}</textarea>
+                            @error('pegawai')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>TUPOKSI</label>
+                            <textarea class="form-control content @error('tupoksi') is-invalid @enderror" name="tupoksi"
+                                placeholder="Masukkan Tupoksi" rows="10">{!! old('tupoksi') !!}</textarea>
+                            @error('tupoksi')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>PROGRAM DAN KEGIATAN</label>
                             <textarea class="form-control content @error('dasar_hukum') is-invalid @enderror" name="program"
                                 placeholder="Masukkan Program dan Kegiatan" rows="10">{!! old('program') !!}</textarea>
