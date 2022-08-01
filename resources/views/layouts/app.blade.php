@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard &mdash; KECAMATAN</title>
+    <title>Dashboard &mdash; OPD</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/bolmongkab.png') }}" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -59,10 +59,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="#">KECAMATAN</a>
+                        <a href="#">OPD</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="#">KEC</a>
+                        <a href="#">OPD</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
@@ -92,10 +92,10 @@
                         <span>Agenda</span></a></li>
                         @endcan
 
-                        @can('potensi.index')
+                        {{-- @can('potensi.index')
                             <li class="{{ setActive('admin/potensi') }}"><a class="nav-link" href="{{ route('admin.potensi.index') }}"><i class="fas fa-concierge-bell"></i>
                         <span>Potensi</span></a></li>
-                        @endcan
+                        @endcan --}}
 
                         @can('services.index')
                             <li class="{{ setActive('admin/service') }}"><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="fas fa-concierge-bell"></i>
@@ -193,7 +193,7 @@
 
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Diskominfo <div class="bullet"></div> All Rights
+                    Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Kabupaten Bolaang Mongondow <div class="bullet"></div> All Rights
                     Reserved.
                 </div>
                 <div class="footer-right">

@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.event.update', $event->id) }}" method="POST">
+                        <form action="{{ route('admin.event.update', $event->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -27,6 +27,44 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>HARI</label>
+                                        <select class="custom-select" id="hari" name="hari" @error('hari') is-invalid @enderror>
+                                            <option value="">Pilih Hari</option>
+                                            @foreach ($events as $e)
+                                    @if($event->hari == $e)
+                                        <option value="{{ $event->hari  }}" selected>{{ $event->hari }}</option>
+                                    @else
+                                        <option value="{{ $e }}">{{ $e }}</option>
+                                    @endif
+                                @endforeach
+                                        </select>
+
+                                        @error('hari')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Jam</label>
+                                        <input type="time" name="time" value="{{ old('time', $event->time) }}" class="form-control @error('time') is-invalid @enderror">
+        
+                                        @error('time')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div class="row">
@@ -60,6 +98,17 @@
                                 <label>ISI AGENDA</label>
                                 <textarea class="form-control content @error('content') is-invalid @enderror" name="content" placeholder="Masukkan Konten / Isi Agenda" rows="10">{!! old('content', $event->content) !!}</textarea>
                                 @error('content')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>GAMBAR</label>
+                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+                                <img src="{{ $event->image }}" width="300px" style="padding-top: 20px;">
+                                @error('image')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>

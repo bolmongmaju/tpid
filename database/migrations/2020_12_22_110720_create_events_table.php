@@ -17,11 +17,12 @@ class CreateEventsTable extends Migration
       $table->id();
       $table->string('title');
       $table->string('slug')->unique();
-      $table->text('content');
+      $table->string('location');
+      $table->date('date');
+      $table->time('time');
+      $table->string('hari');
+      $table->text('content')->nullable();
       $table->string('image')->nullable();
-      $table->string('location')->nullable();
-      $table->date('date')->nullable();
-      $table->date('enddate')->nullable();
       $table->string('status')->nullable();
       $table->timestamps();
     });
