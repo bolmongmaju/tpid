@@ -54,7 +54,10 @@
 
       @forelse($video as $item)
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <img src="{!! $item->embed !!}" class="img-fluid" alt="">
+        <div class="embed-responsive embed-responsive-16by9">
+          {!! $item->embed !!}
+          {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> --}}
+        </div>
         <div class="portfolio-info">
           <h4>{{$item->title}}</h4>
           <p>{{$item->title}}</p>
