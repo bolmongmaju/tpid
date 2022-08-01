@@ -25,11 +25,11 @@ class PageController extends Controller
 {
     public function index(){
         $postssatu = News::with('tags')->take(1)->latest()->get();
-        $posts = News::with('tags')->take(3)->latest()->get();
+        $posts = News::with('tags')->take(4)->latest()->get();
         $infografis = Infografis::take(4)->latest()->get();
         $postskegiatan = Category::where('name','kegiatan')->with('news')->take(4)->latest()->get();
-        $events = Event::take(2)->latest()->get();
-        $sliders = Slider::latest()->get();
+        $events = Event::take(4)->latest()->get();
+        $sliders = Slider::take(1)->latest()->get();
         $services = Service::all();
         return view('opd/index',compact(
             'posts','events','sliders','services','postssatu','postskegiatan','infografis'));

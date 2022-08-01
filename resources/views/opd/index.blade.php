@@ -8,33 +8,87 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
+  {{-- @forelse($kontak as $item)
   <div id="topbar" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
-        <i class="bi bi-phone-fill phone-icon"></i> +62 5589 55488 55
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">{{$item->email}}</a>
+        <i class="bi bi-phone-fill phone-icon"></i> {{$item->no_telp}}
       </div>
       <div class="cta d-none d-md-block">
-        <a href="#about" class="scrollto">Get Started</a>
+        <a href="#about" class="scrollto">DUKCAPIL</a>
       </div>
     </div>
   </div>
+  @empty
+  <div id="topbar" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">-</a>
+        <i class="bi bi-phone-fill phone-icon"></i> -
+      </div>
+      <div class="cta d-none d-md-block">
+        <a href="#about" class="scrollto">-</a>
+      </div>
+    </div>
+  </div>
+  @endforelse --}}
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center ">
+  <header id="header" class="fixed-top">
     @include('opd.layout.header')
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+  @foreach ($sliders as $item)
+  <section id="hero" class="d-flex align-items-center"style="background-image: url(''); background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover; 
+    -o-background-size: cover;">
+
+    <div style="margin: 3%">
+      <div class="row">
+        <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Dukcapil Bolaang Mongondow</h1>
+          <h2>Selamat datang di website resmi dukcapil kabupaten bolaang mongondow</h2>
+          {{-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> --}}
+
+          <div>
+
+            <div class="row" style="margin-top: 2%;">
+              <div class="col d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="dua-layanan">
+                  {{-- <i class="bi bi-card-checklist"></i> --}}
+                  <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
+                  <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
+                </div>
+              </div>
+              <div class="col d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
+                  {{-- <i class="bi bi-card-checklist"></i> --}}
+                  <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
+                  <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-lg-4 order-1 order-lg-2 hero-img">
+          {{-- <img src="{{$item->image}}" class="img-fluid" alt=""> --}}
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+  {{-- <section id="hero" class="d-flex justify-cntent-center align-items-center"  style="background-image: url({{$item->image}});">
     <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
 
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Selamat datang di website resmi <span>Dinas Pendidikan</span></h2>
-          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+          <h2 class="animate__animated animate__fadeInDown"><span>{{$item->title}}</span></h2>
         </div>
       </div>
 
@@ -47,7 +101,8 @@
       </a>
 
     </div>
-  </section><!-- End Hero -->
+  </section> --}}
+  @endforeach
 
   <main id="main">
     <!-- ======= Icon Boxes Section ======= -->
@@ -55,38 +110,27 @@
       <div class="container">
 
         <div class="row justify-content-md-center">
+
+          @forelse ($events as $item)
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
-            {{-- <img src="{{ asset('assets-opd/img/kadis-pendidikan-1.jpg') }}" alt="" style="width: 100%;" class="rounded"> --}}
+            <div class="icon-box">
+              {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
+              <h4 class="title"><a href="">{{$item->title}}</a></h4>
+              <p class="description">{{ strip_tags($item->content ) }}</p>
+            </div>
+          </div>
+
+          @empty
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <h4 class="title"><a href="">Belum ada agenda</a></h4>
+              <p class="description">Tidak ada agenda baru</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-{{-- 
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
+          @endforelse
 
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div> --}}
 
         </div>
 
@@ -94,19 +138,19 @@
     </section><!-- End Icon Boxes Section -->
 
      <!-- ======= Recent Blog Posts Section ======= -->
-     <section id="recent-blog-posts" class="recent-blog-posts">
+     <section id="recent-blog-posts" class="recent-blog-posts" style="background: #f1f8ff">
 
       <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
+        <div class="section-title">
           <h2>Berita</h2>
-          <p>Berita Terbaru Ditambahkan</p>
+          <p>Berita yang baru ditambahkan</p>
         </div>
 
         <div class="row">
 
           @foreach ($posts as $post)
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
             <div class="post-box">
               <div class="post-img"><img src="{{ $post->image}}" class="img-fluid" alt=""></div>
               <div class="meta">
