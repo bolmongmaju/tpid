@@ -41,14 +41,14 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
-                  <i class="fa fa-tags text-white fa-2x"></i>
+                  <i class="fa fa-file-image text-white fa-2x"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>TAGS</h4>
+                    <h4>FILES</h4>
                   </div>
                   <div class="card-body">
-                    {{ App\Models\Tag::count() ?? '0' }}
+                    {{ App\Models\File::count() ?? '0' }}
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -80,15 +81,11 @@ Route::prefix('admin')->group(function () {
         //infografis
         Route::resource('infografis', App\Http\Controllers\Admin\InfografisController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
 
-        //profile
-        // Route::resource('profile', App\Http\Controllers\Admin\ProfileController::class, ['except' => ['show'], 'as' => 'admin']);
-
         Route::resource('profile', ProfileController::class)->except(['show', 'delete']);
+        Route::resource('contact', ContactController::class)->except(['show', 'delete']);
 
         // link
         Route::resource('link', App\Http\Controllers\Admin\LinkController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        Route::resource('contact', App\Http\Controllers\Admin\ContactController::class, ['except' => ['show'], 'as' => 'admin']);
 
         Route::resource('sosmed', App\Http\Controllers\Admin\SosmedController::class, ['except' => ['show'], 'as' => 'admin']);
     });

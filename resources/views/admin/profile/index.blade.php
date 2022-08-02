@@ -25,7 +25,6 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">NAMA OPD</th>
                                 <th scope="col">SHORT NAME</th>
                                 <th scope="col">FOTO PIMPINAN</th>
@@ -35,7 +34,6 @@
                             <tbody>
                             @forelse ($profiles as $profile)
                                 <tr>
-                                    <td>{{ $profiles->count() * ($profiles->currentPage() - 1) + $loop->iteration }}</td>
                                     <td>{{ $profile->nama_opd }}</td>
                                     <td>{{ $profile->short_name }}</td>
                                     <td>
@@ -60,9 +58,7 @@
                             @endforelse
                             </tbody>
                         </table>
-                        <div style="text-align: center">
-                            {{$profiles->links("vendor.pagination.bootstrap-4")}}
-                        </div>
+                        
                     </div>
                 </div>
             </div>

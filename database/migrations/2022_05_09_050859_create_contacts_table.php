@@ -19,8 +19,8 @@ class CreateContactsTable extends Migration
             $table->text('alamat');
             $table->string('no_telp')->unique();
             $table->string('hari_kerja')->nullable();
-            $table->string('jam_buka')->nullable();
-            $table->string('jam_tutup')->nullable();
+            $table->time('jam_buka')->nullable();
+            $table->time('jam_tutup')->nullable();
             $table->text('maps')->nullable();
             $table->timestamps();
         });

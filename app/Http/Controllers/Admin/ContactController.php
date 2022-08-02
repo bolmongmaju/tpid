@@ -25,10 +25,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest()->when(request()->q, function ($contacts) {
-            $contacts = $contacts->where('email', 'like', '%' . request()->q . '%');
-        })->paginate(10);
-
+        $contacts = Contact::latest()->get();
         return view('admin.contact.index', compact('contacts'));
     }
 
@@ -57,10 +54,13 @@ class ContactController extends Controller
         ]);
 
         $contact = Contact::create([
-            'email'   => $request->input('email'),
-            'alamat'  => $request->input('alamat'),
-            'no_telp' => $request->input('no_telp'),
-            'maps'    => $request->input('maps'),
+            'email'      => $request->input('email'),
+            'alamat'     => $request->input('alamat'),
+            'no_telp'    => $request->input('no_telp'),
+            'maps'       => $request->input('maps'),
+            'hari_kerja' => $request->input('hari'),
+            'jam_buka'   => $request->input('jam_buka'),
+            'jam_tutup'  => $request->input('jam_tutup'),
         ]);
 
         if ($contact) {
@@ -73,17 +73,6 @@ class ContactController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Contact  $contact
@@ -91,7 +80,10 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        return view('admin.contact.edit', compact('contact'));
+        $contacts = [
+            'Setiap Hari', 'Senin-Jumat', 'Senin-Sabtu', 'Senin-Minggu'
+        ];
+        return view('admin.contact.edit', compact('contact', 'contacts'));
     }
 
     /**
@@ -104,16 +96,19 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact)
     {
         $this->validate($request, [
-            'email'   => 'required|unique:contacts,email',
-            'no_telp' => 'required|unique:contacts,no_telp',
+            'email'   => 'required',
+            'no_telp' => 'required',
             'alamat'  => 'required',
         ]);
 
         $contact = Contact::findOrFail($contact->id)->update([
-            'email'   => $request->input('email'),
-            'alamat'  => $request->input('alamat'),
-            'no_telp' => $request->input('no_telp'),
-            'maps'    => $request->input('maps'),
+            'email'      => $request->input('email'),
+            'alamat'     => $request->input('alamat'),
+            'no_telp'    => $request->input('no_telp'),
+            'maps'       => $request->input('maps'),
+            'hari_kerja' => $request->input('hari'),
+            'jam_buka'   => $request->input('jam_buka'),
+            'jam_tutup'  => $request->input('jam_tutup'),
         ]);
 
         if ($contact) {
@@ -122,28 +117,6 @@ class ContactController extends Controller
         } else {
             //redirect dengan pesan error
             return redirect()->route('admin.contact.index')->with(['error' => 'Data Gagal Disimpan!']);
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $contact = Contact::findOrFail($id);
-        $contact->delete();
-
-        if ($contact) {
-            return response()->json([
-                'status' => 'success'
-            ]);
-        } else {
-            return response()->json([
-                'status' => 'error'
-            ]);
         }
     }
 }
