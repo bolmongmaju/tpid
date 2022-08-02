@@ -16,6 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('nama_opd');
+            $table->string('short_name');
             $table->text('dasar_hukum')->nullable();
             $table->text('sejarah')->nullable();
             $table->text('visi')->nullable();
@@ -28,6 +29,7 @@ class CreateProfilesTable extends Migration
             $table->string('struktur_organisasi')->nullable();
             $table->string('logo');
             $table->string('favicon')->nullable();
+            $table->string('maklumat')->nullable();
             $table->timestamps();
         });
     }

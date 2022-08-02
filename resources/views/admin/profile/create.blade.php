@@ -19,12 +19,25 @@
                         @csrf
 
                         <div class="form-group">
-                            <label>NAMA OPD</label>
+                            <label>NAMA PANJANG OPD</label>
                             <input type="text" name="nama" value="{{ old('nama') }}"
-                                placeholder="Masukkan Nama OPD"
+                                placeholder="Masukkan Nama Lengkap OPD"
                                 class="form-control @error('nama') is-invalid @enderror">
 
                             @error('nama')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>NAMA PENDEK OPD</label>
+                            <input type="text" name="short_name" value="{{ old('short_name') }}"
+                                placeholder="Masukkan Nama Singkatan OPD"
+                                class="form-control @error('short_name') is-invalid @enderror">
+
+                            @error('short_name')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
                             </div>
@@ -142,10 +155,32 @@
                         </div>
 
                         <div class="form-group">
-                            <label>KATA SAMBUTAN</label>
+                            <label>KATA SAMBUTAN</label><br>
                             <textarea class="form-control content @error('kata_sambutan') is-invalid @enderror" name="kata_sambutan"
                                 placeholder="Masukkan Kata Sambutan" rows="10">{!! old('kata_sambutan') !!}</textarea>
                             @error('sejarah')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>FOTO PIMPINAN</label>
+                            <input type="file" name="foto_pimpinan" class="form-control @error('foto_pimpinan') is-invalid @enderror">
+
+                            @error('foto_pimpinan')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>MAKLUMAT PELAYANAN (Opsional)</label>
+                            <input type="file" name="maklumat" class="form-control @error('maklumat') is-invalid @enderror">
+
+                            @error('maklumat')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
                             </div>

@@ -94,10 +94,8 @@ class PermissionsTableSeeder extends Seeder
 
         //permission for profile
         Permission::create(['name' => 'profile.index']);
-        Permission::create(['name' => 'profile.show']);
         Permission::create(['name' => 'profile.create']);
         Permission::create(['name' => 'profile.edit']);
-        Permission::create(['name' => 'profile.delete']);
 
         //permission for contact
         Permission::create(['name' => 'contact.index']);
@@ -122,11 +120,5 @@ class PermissionsTableSeeder extends Seeder
         // Permission::create(['name' => 'visitor.create']);
         // Permission::create(['name' => 'visitor.edit']);
         // Permission::create(['name' => 'visitor.delete']);
-
-        //permission for potensi
-        Permission::create(['name' => 'potensi.index']);
-        Permission::create(['name' => 'potensi.create']);
-        Permission::create(['name' => 'potensi.edit']);
-        Permission::create(['name' => 'potensi.delete']);
     }
 }

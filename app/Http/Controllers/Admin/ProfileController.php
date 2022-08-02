@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['permission:profile.index|profile.show|profile.create|profile.edit|profile.delete']);
+        $this->middleware(['permission:profile.index|profile.create|profile.edit']);
     }
 
     /**
@@ -27,7 +27,7 @@ class ProfileController extends Controller
     public function index()
     {
         $profiles = Profile::latest()->when(request()->q, function ($profiles) {
-            $profiles = $profiles->where('nama_kecamatan', 'like', '%' . request()->q . '%');
+            $profiles = $profiles->where('nama_opd', 'like', '%' . request()->q . '%');
         })->paginate(10);
 
         return view('admin.profile.index', compact('profiles'));
@@ -52,10 +52,13 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'     => 'required',
-            'logo'     => 'required|image|mimes:jpeg,jpg,png|max:2048',
-            'favicon'  => 'image|mimes:jpeg,jpg,png|max:2048',
-            'struktur' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'nama'          => 'required',
+            'short_name'    => 'required',
+            'logo'          => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'favicon'       => 'image|mimes:jpeg,jpg,png|max:2048',
+            'struktur'      => 'image|mimes:jpeg,jpg,png|max:2048',
+            'foto_pimpinan' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'maklumat'      => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         if ($request->file('logo')) {
@@ -70,8 +73,17 @@ class ProfileController extends Controller
             $struktur = $request->file('struktur')->store('assets/profile', 'public');
         }
 
+        if ($request->file('foto_pimpinan')) {
+            $foto_pimpinan = $request->file('foto_pimpinan')->store('assets/profile', 'public');
+        }
+
+        if ($request->file('maklumat')) {
+            $maklumat = $request->file('maklumat')->store('assets/profile', 'public');
+        }
+
         $profile = Profile::create([
-            'nama_kecamatan'      => $request->input('nama'),
+            'nama_opd'            => $request->input('nama'),
+            'short_name'          => $request->input('short_name'),
             'dasar_hukum'         => $request->input('dasar_hukum'),
             'sejarah'             => $request->input('sejarah'),
             'visi'                => $request->input('visi'),
@@ -79,9 +91,12 @@ class ProfileController extends Controller
             'program'             => $request->input('program'),
             'pegawai'             => $request->input('pegawai'),
             'tupoksi'             => $request->input('tupoksi'),
+            'kata_sambutan'       => $request->input('kata_sambutan'),
             'logo'                => ($request->file('logo')) ? $logo : null,
             'favicon'             => ($request->file('favicon')) ? $favicon : null,
             'struktur_organisasi' => ($request->file('struktur')) ? $struktur : null,
+            'foto_pimpinan'       => ($request->file('foto_pimpinan')) ? $foto_pimpinan : null,
+            'maklumat'            => ($request->file('maklumat')) ? $maklumat : null,
         ]);
 
         if ($profile) {
@@ -91,17 +106,6 @@ class ProfileController extends Controller
             //redirect dengan pesan error
             return redirect()->route('admin.profile.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profile $profile)
-    {
-        return view('admin.profile.show', compact('profile'));
     }
 
     /**
@@ -125,10 +129,13 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $this->validate($request, [
-            'nama'     => 'required',
-            'logo'     => 'image|mimes:jpeg,jpg,png|max:2048',
-            'favicon'  => 'image|mimes:jpeg,jpg,png|max:2048',
-            'struktur' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'nama'          => 'required',
+            'short_name'    => 'required',
+            'logo'          => 'image|mimes:jpeg,jpg,png|max:2048',
+            'favicon'       => 'image|mimes:jpeg,jpg,png|max:2048',
+            'struktur'      => 'image|mimes:jpeg,jpg,png|max:2048',
+            'foto_pimpinan' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'maklumat'      => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         if ($request->file('logo')) {
@@ -146,8 +153,19 @@ class ProfileController extends Controller
             $struktur = $request->file('struktur')->store('assets/profile', 'public');
         }
 
+        if ($request->file('foto_pimpinan')) {
+            Storage::delete($profile->foto_pimpinan);
+            $foto_pimpinan = $request->file('foto_pimpinan')->store('assets/profile', 'public');
+        }
+
+        if ($request->file('maklumat')) {
+            Storage::delete($profile->maklumat);
+            $maklumat = $request->file('maklumat')->store('assets/profile', 'public');
+        }
+
         $profile->findOrFail($profile->id)->update([
-            'nama_kecamatan'      => $request->input('nama'),
+            'nama_opd'            => $request->input('nama'),
+            'short_name'          => $request->input('short_name'),
             'dasar_hukum'         => $request->input('dasar_hukum'),
             'sejarah'             => $request->input('sejarah'),
             'visi'                => $request->input('visi'),
@@ -155,9 +173,12 @@ class ProfileController extends Controller
             'program'             => $request->input('program'),
             'pegawai'             => $request->input('pegawai'),
             'tupoksi'             => $request->input('tupoksi'),
+            'kata_sambutan'       => $request->input('kata_sambutan'),
             'logo'                => ($request->file('logo')) ? $logo : $profile->logo,
             'favicon'             => ($request->file('favicon')) ? $favicon : $profile->favicon,
             'struktur_organisasi' => ($request->file('struktur')) ? $struktur : $profile->struktur_organisasi,
+            'foto_pimpinan'       => ($request->file('foto_pimpinan')) ? $foto_pimpinan : $profile->foto_pimpinan,
+            'maklumat'            => ($request->file('maklumat')) ? $maklumat : $profile->maklumat,
         ]);
 
         if ($profile) {
@@ -166,29 +187,6 @@ class ProfileController extends Controller
         } else {
             //redirect dengan pesan error
             return redirect()->route('admin.profile.index')->with(['error' => 'Data Gagal Disimpan!']);
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Profile  $profile
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $profile = Profile::findOrFail($id);
-        Storage::delete($profile->logo);
-        $profile->delete();
-
-        if ($profile) {
-            return response()->json([
-                'status' => 'success'
-            ]);
-        } else {
-            return response()->json([
-                'status' => 'error'
-            ]);
         }
     }
 }
