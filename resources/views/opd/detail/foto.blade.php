@@ -63,7 +63,7 @@
         </div>
       </div>
       @empty
-      Belum ada video
+      Belum ada gambar
       @endforelse
 
     </div>
