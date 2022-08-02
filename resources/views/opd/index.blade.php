@@ -41,45 +41,42 @@
 
   <!-- ======= Hero Section ======= -->
   @foreach ($sliders as $item)
-  <section id="hero" class="d-flex align-items-center"style="background-image: url(''); background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover; 
-    -o-background-size: cover;">
-
-    <div style="margin: 3%">
-      <div class="row">
-        <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Dukcapil Bolaang Mongondow</h1>
-          <h2>Selamat datang di website resmi dukcapil kabupaten bolaang mongondow</h2>
-          {{-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> --}}
-
-          <div>
-
-            <div class="row" style="margin-top: 2%;">
-              <div class="col" data-aos="fade-up" data-aos-delay="100">
-                <div class="dua-layanan">
-                  {{-- <i class="bi bi-card-checklist"></i> --}}
-                  <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
-                  <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
+  <section id="hero" class="d-flex align-items-center">
+      <div style="margin: 3%;">
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1>Dukcapil Bolaang Mongondow</h1>
+            <h2>Selamat datang di website resmi dukcapil kabupaten bolaang mongondow</h2>
+            {{-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> --}}
+  
+            <div>
+  
+              <div class="row" style="margin-top: 2%;">
+                <div class="col-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="dua-layanan">
+                    {{-- <i class="bi bi-card-checklist"></i> --}}
+                    <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
+                    <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
+                  </div>
+                </div>
+                <div class="col-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
+                    {{-- <i class="bi bi-card-checklist"></i> --}}
+                    <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
+                    <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
+                  </div>
                 </div>
               </div>
-              <div class="col" data-aos="fade-up" data-aos-delay="100">
-                <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
-                  {{-- <i class="bi bi-card-checklist"></i> --}}
-                  <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
-                  <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
-                </div>
-              </div>
+  
             </div>
-
+  
           </div>
-
-        </div>
-        <div class="col-lg-4 order-1 order-lg-2 hero-img">
-          {{-- <img src="{{$item->image}}" class="img-fluid" alt=""> --}}
+          <div class="col-lg-4 order-1 order-lg-2 hero-img rounded">
+            {{-- <img src="{{$item->image}}" class="img-fluid" alt=""> --}}
+          </div>
         </div>
       </div>
-    </div>
+
 
   </section><!-- End Hero -->
   {{-- <section id="hero" class="d-flex justify-cntent-center align-items-center"  style="background-image: url({{$item->image}});">
@@ -157,7 +154,7 @@
               </div>
               <h3 class="post-title-recent">{{ $post->title }} </h3>
               <p class="recent-blog-body">{{ strip_tags($post->body) }}</p>
-              <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              <a href="{{ route('berita-detail',$post->id) }}" class="readmore stretched-link"><span>Baca</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           @endforeach

@@ -36,8 +36,8 @@ class PageController extends Controller
     }
 
     public function eventDetail(Request $request, $id){
-          
-        return view('bolmongkab/detail/agenda-detail',compact('events'));
+        $events = Event::where('id', $id)->firstOrFail();
+        return view('opd/detail/agenda-detail',compact('events'));
     }
 
     public function program(){
