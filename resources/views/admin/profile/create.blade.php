@@ -19,9 +19,9 @@
                         @csrf
 
                         <div class="form-group">
-                            <label>NAMA KECAMATAN</label>
+                            <label>NAMA OPD</label>
                             <input type="text" name="nama" value="{{ old('nama') }}"
-                                placeholder="Masukkan Nama Kecamatan"
+                                placeholder="Masukkan Nama OPD"
                                 class="form-control @error('nama') is-invalid @enderror">
 
                             @error('nama')
@@ -134,6 +134,17 @@
                             <label>SEJARAH</label>
                             <textarea class="form-control content @error('sejarah') is-invalid @enderror" name="sejarah"
                                 placeholder="Masukkan Sejarah" rows="10">{!! old('sejarah') !!}</textarea>
+                            @error('sejarah')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>KATA SAMBUTAN</label>
+                            <textarea class="form-control content @error('kata_sambutan') is-invalid @enderror" name="kata_sambutan"
+                                placeholder="Masukkan Kata Sambutan" rows="10">{!! old('kata_sambutan') !!}</textarea>
                             @error('sejarah')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
