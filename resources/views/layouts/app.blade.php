@@ -92,11 +92,6 @@
                         <span>Agenda</span></a></li>
                         @endcan
 
-                        {{-- @can('potensi.index')
-                            <li class="{{ setActive('admin/potensi') }}"><a class="nav-link" href="{{ route('admin.potensi.index') }}"><i class="fas fa-concierge-bell"></i>
-                        <span>Potensi</span></a></li>
-                        @endcan --}}
-
                         @can('services.index')
                             <li class="{{ setActive('admin/service') }}"><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="fas fa-concierge-bell"></i>
                         <span>Layanan</span></a></li>

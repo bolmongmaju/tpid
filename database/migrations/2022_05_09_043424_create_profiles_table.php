@@ -15,7 +15,8 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kecamatan');
+            $table->string('nama_opd');
+            $table->string('short_name');
             $table->text('dasar_hukum')->nullable();
             $table->text('sejarah')->nullable();
             $table->text('visi')->nullable();
@@ -23,9 +24,12 @@ class CreateProfilesTable extends Migration
             $table->text('pegawai')->nullable();
             $table->text('program')->nullable();
             $table->text('tupoksi')->nullable();
+            $table->text('kata_sambutan')->nullable();
+            $table->string('foto_pimpinan')->nullable();
             $table->string('struktur_organisasi')->nullable();
             $table->string('logo');
             $table->string('favicon')->nullable();
+            $table->string('maklumat')->nullable();
             $table->timestamps();
         });
     }

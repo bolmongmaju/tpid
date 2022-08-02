@@ -66,6 +66,50 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label>HARI KERJA</label>
+                            <select class="custom-select" id="hari" name="hari" @error('hari') is-invalid @enderror>
+                                <option value="">Pilih Hari</option>
+                                <option value="Setiap Hari">Setiap Hari</option>
+                                <option value="Senin-Jumat">Senin-Jumat</option>
+                                <option value="Senin-sabtu">Senin-Sabtu</option>
+                                <option value="Senin-Minggu">Senin-Minggu</option>
+                            </select>
+
+                            @error('hari')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>JAM BUKA</label>
+                                    <input type="time" name="jam_buka" value="{{ old('jam_buka') }}" class="form-control @error('jam_buka') is-invalid @enderror">
+    
+                                    @error('jam_buka')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>JAM TUTUP</label>
+                                    <input type="time" name="jam_tutup" value="{{ old('jam_tutup') }}" class="form-control @error('jam_tutup') is-invalid @enderror">
+    
+                                    @error('jam_tutup')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>

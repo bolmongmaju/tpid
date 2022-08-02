@@ -1,5 +1,22 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\LinkController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\SosmedController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,62 +48,25 @@ route::get('/event-detail/{event:id}', [App\Http\Controllers\PageController::cla
 Auth::routes(['register' => false]);
 
 Route::prefix('admin')->group(function () {
-
     Route::group(['middleware' => 'auth'], function () {
-
-        //dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
-
-        //permissions
-        Route::resource('permission', App\Http\Controllers\Admin\PermissionController::class, ['except' => ['show', 'create', 'edit', 'update', 'delete'], 'as' => 'admin']);
-
-        //roles
-        Route::resource('role', App\Http\Controllers\Admin\RoleController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        //users
-        Route::resource('user', App\Http\Controllers\Admin\UserController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        //tags
-        Route::resource('tag', App\Http\Controllers\Admin\TagController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //categories
-        Route::resource('category', App\Http\Controllers\Admin\CategoryController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //news
-        Route::resource('news', App\Http\Controllers\Admin\NewsController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //download
-        Route::resource('file', App\Http\Controllers\Admin\FileController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //banners
-        Route::resource('banner', App\Http\Controllers\Admin\BannerController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //services
-        Route::resource('service', App\Http\Controllers\Admin\ServiceController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //event
-        Route::resource('event', App\Http\Controllers\Admin\EventController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //photo
-        Route::resource('photo', App\Http\Controllers\Admin\PhotoController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-
-        //video
-        Route::resource('video', App\Http\Controllers\Admin\VideoController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //slider
-        Route::resource('slider', App\Http\Controllers\Admin\SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-
-        //infografis
+        Route::resource('permission', PermissionController::class)->except(['show', 'create', 'edit', 'update', 'delete']);
+        Route::resource('role', RoleController::class)->except('show');
+        Route::resource('user', UserController::class)->except('show');
+        Route::resource('news', NewsController::class)->except('show');
+        Route::resource('category', CategoryController::class)->except('show');
+        Route::resource('tag', TagController::class)->except('show');
+        Route::resource('event', EventController::class)->except('show');
+        Route::resource('file', FileController::class)->except('show');
+        Route::resource('service', ServiceController::class)->except('show');
+        Route::resource('banner', BannerController::class)->except('show');
+        Route::resource('profile', ProfileController::class)->except(['show', 'delete']);
+        Route::resource('contact', ContactController::class)->except(['show', 'delete']);
+        Route::resource('link', LinkController::class)->except('show');
+        Route::resource('sosmed', SosmedController::class)->except('show');
+        Route::resource('photo', PhotoController::class)->except(['show', 'create', 'edit', 'update']);
+        Route::resource('video', VideoController::class)->except('show');
+        Route::resource('slider', SliderController::class)->except(['show', 'create', 'edit', 'update']);
         Route::resource('infografis', App\Http\Controllers\Admin\InfografisController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-
-        //profile
-        Route::resource('profile', App\Http\Controllers\Admin\ProfileController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        // link
-        Route::resource('link', App\Http\Controllers\Admin\LinkController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        Route::resource('contact', App\Http\Controllers\Admin\ContactController::class, ['except' => ['show'], 'as' => 'admin']);
-
-        Route::resource('sosmed', App\Http\Controllers\Admin\SosmedController::class, ['except' => ['show'], 'as' => 'admin']);
     });
 });

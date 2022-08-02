@@ -20,12 +20,25 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label>NAMA KECAMATAN</label>
-                            <input type="text" name="nama" value="{{ old('nama') ?? $profile->nama_kecamatan }}"
-                                placeholder="Masukkan Nama Kecamatan"
+                            <label>NAMA Lengkap OPD</label>
+                            <input type="text" name="nama" value="{{ old('nama') ?? $profile->nama_opd }}"
+                                placeholder="Masukkan Nama Lengkap OPD"
                                 class="form-control @error('nama') is-invalid @enderror">
 
                             @error('nama')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>NAMA Pendek OPD</label>
+                            <input type="text" name="short_name" value="{{ old('short_name') ?? $profile->short_name }}"
+                                placeholder="Masukkan Nama Singkatan OPD"
+                                class="form-control @error('short_name') is-invalid @enderror">
+
+                            @error('short_name')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
                             </div>
@@ -152,6 +165,33 @@
                                 {{ $message }}
                             </div>
                             @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>KATA SAMBUTAN</label>
+                            <textarea class="form-control content @error('kata_sambutan') is-invalid @enderror" name="kata_sambutan"
+                                placeholder="Masukkan Kata Sambutan" rows="10">{!! old('kata_sambutan') ?? $profile->kata_sambutan !!}</textarea>
+
+                            @error('kata_sambutan')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>FOTO PIMPINAN</label>
+                            <input type="file" name="foto_pimpinan" class="form-control @error('foto_pimpinan') is-invalid @enderror">
+
+                            @error('foto_pimpinan')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+
+                            @if(Storage::disk('public')->exists($profile->foto_pimpinan ?? null))
+                                <img src="{{ Storage::url($profile->foto_pimpinan ?? null) }}" width="200px" />
+                            @endif
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
