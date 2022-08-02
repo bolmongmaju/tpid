@@ -41,13 +41,16 @@
 
   <!-- ======= Hero Section ======= -->
   @foreach ($sliders as $item)
-  <section id="hero" class="d-flex align-items-center">
-      <div style="margin: 3%;">
+  <section id="hero" class="d-flex align-items-center" style="background-image: url({{$item->image}});
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    width: 100%;">
+      <div style="margin: 3%;" class="hero-single">
         <div class="row">
           <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
             <h1>Dukcapil Bolaang Mongondow</h1>
             <h2>Selamat datang di website resmi dukcapil kabupaten bolaang mongondow</h2>
-            {{-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> --}}
   
             <div>
   
@@ -78,29 +81,7 @@
       </div>
 
 
-  </section><!-- End Hero -->
-  {{-- <section id="hero" class="d-flex justify-cntent-center align-items-center"  style="background-image: url({{$item->image}});">
-    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Organisasi Kepegawaian (ORPEG)</span></h2>
-          <p class="animate__animated animate__fadeInUp">Selamat Datang Di Website Resmi Organisasi Kepegawaian (ORPEG) Kabupaten Bolaang Mongondow</p>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-        </div>
-      </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-      </a>
-
-    </div>
-  </section> --}}
+  </section>
   @endforeach
 
   <main id="main">
@@ -111,7 +92,7 @@
         <div class="row justify-content-md-center">
 
           @forelse ($events as $item)
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
             <div class="icon-box">
               {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
               <h4 class="title"><a href="{{ route('event-detail', $item->id) }}">{{$item->title}}</a></h4>

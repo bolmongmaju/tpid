@@ -1,9 +1,9 @@
 
-<div class="container d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center justify-content-between" style="margin-right: 10%; margin-left:10%;">
 
   <a href="index.html" class="logo"><img src="{{ asset('assets-opd/img/logo.png') }}" alt="" class="img-fluid"></a>
   <!-- Uncomment below if you prefer to use text as a logo -->
-  <!-- <h1 class="logo"><a href="index.html">Butterfly</a></h1> -->
+  
 
   <nav id="navbar" class="navbar">
     <ul>
@@ -27,5 +27,7 @@
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
+
+  <h1 class="logo"><a href="index.html">Orpeg</a></h1>
 
 </div>
