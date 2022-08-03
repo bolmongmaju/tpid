@@ -21,7 +21,7 @@
     </div> --}}
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-tops">
+    <header id="header" class="fixed-top">
         @include('opd.layout.header')
     </header><!-- End Header -->
 

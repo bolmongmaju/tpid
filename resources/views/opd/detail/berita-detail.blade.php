@@ -7,7 +7,7 @@
 
 <body>
  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-inner-pages">
+  <header id="header" class="fixed-top">
     @include('opd.layout.header')
   </header><!-- End Header -->
 
