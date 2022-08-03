@@ -95,12 +95,13 @@ class PageController extends Controller
 
     public function download(){
         $downloads = Download::latest()->paginate(5);
-        return view('bolmongkab/detail/download',compact('downloads'));
+        return view('opd/detail/download',compact('downloads'));
     }
 
     public function getDownload(Request $request, $id) {
-        $downloads = Download::where('id', $id)->firstOrFail();
-        return view('admin.download.show',compact('downloads'));
+        $entry = Download::where('id', '=', $id)->firstOrFail();
+        $pathToFile=storage_path()."/app/public/files/".$entry->file;
+        return response()->download($pathToFile); 
     }
 
     public function berita(Request $request) {
