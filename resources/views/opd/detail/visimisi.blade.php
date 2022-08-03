@@ -106,7 +106,7 @@
  <body>
  
    <!-- ======= Top Bar ======= -->
-   <div id="topbar" class="fixed-top d-flex align-items-center topbar-inner-pages">
+   {{-- <div id="topbar" class="fixed-top d-flex align-items-center topbar-inner-pages">
      <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
        <div class="contact-info d-flex align-items-center">
          <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
@@ -116,10 +116,10 @@
          <a href="#about" class="scrollto">Get Started</a>
        </div>
      </div>
-   </div>
+   </div> --}}
  
    <!-- ======= Header ======= -->
-   <header id="header" class="fixed-top d-flex align-items-center header-inner-pages">
+   <header id="header" class="fixed-top">
      @include('opd.layout.header')
    </header><!-- End Header -->
  
