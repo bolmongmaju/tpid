@@ -71,8 +71,7 @@
                                 <span>Dashboard</span></a></li>
 
                         @can('news.index')
-                                <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('admin.news.index') }}
-                            "><i class="fas fa-newspaper"></i>
+                                <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('admin.news.index') }}"><i class="fas fa-newspaper"></i>
                             <span>Berita</span></a></li>
                         @endcan
 
@@ -105,6 +104,11 @@
                         @can('files.index')
                             <li class="{{ setActive('admin/file') }}"><a class="nav-link" href="{{ route('admin.file.index') }}"><i class="fas fa-file-image"></i>
                         <span>Files</span></a></li>
+                        @endcan
+                        
+                        @can('downloads.index')
+                            <li class="{{ setActive('admin/download') }}"><a class="nav-link" href="{{ route('admin.admin-download.index') }}"><i class="fas fa-file-image"></i>
+                        <span>Download</span></a></li>
                         @endcan
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))

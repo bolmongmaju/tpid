@@ -115,6 +115,12 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'sosmed.edit']);
         Permission::create(['name' => 'sosmed.delete']);
 
+        //permission for download
+        Permission::create(['name' => 'downloads.index']);
+        Permission::create(['name' => 'downloads.create']);
+        Permission::create(['name' => 'downloads.edit']);
+        Permission::create(['name' => 'downloads.delete']);
+
         //permission for visitor
         // Permission::create(['name' => 'visitor.index']);
         // Permission::create(['name' => 'visitor.create']);

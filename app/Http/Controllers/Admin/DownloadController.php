@@ -18,7 +18,7 @@ class DownloadController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['permission:statiks.index|statiks.create|statiks.edit|statiks.delete']);
+        $this->middleware(['permission:downloads.index|downloads.create|downloads.edit|downloads.delete']);
     }
     /**
      * Display a listing of the resource.
