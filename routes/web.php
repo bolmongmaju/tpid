@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('permission', PermissionController::class)->except(['show', 'create', 'edit', 'update', 'delete']);
         Route::resource('role', RoleController::class)->except('show');
         Route::resource('user', UserController::class)->except('show');
-        Route::resource('news', NewsController::class)->except('show');
+        Route::resource('news', NewsController::class)->except('show')->name('index', 'news.index');
         Route::resource('category', CategoryController::class)->except('show');
         Route::resource('tag', TagController::class)->except('show');
         Route::resource('event', EventController::class)->except('show');
