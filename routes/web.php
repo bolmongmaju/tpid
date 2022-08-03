@@ -67,6 +67,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('photo', PhotoController::class)->except(['show', 'create', 'edit', 'update']);
         Route::resource('video', VideoController::class)->except('show');
         Route::resource('slider', SliderController::class)->except(['show', 'create', 'edit', 'update']);
+        Route::resource('/admin-download', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show' ,'as' => 'admin']);
         Route::resource('infografis', App\Http\Controllers\Admin\InfografisController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
     });
 });
