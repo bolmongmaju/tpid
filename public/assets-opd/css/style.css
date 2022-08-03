@@ -436,10 +436,9 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 80vh;
-  background: #000000 top center;
+  height: 65vh;
+  background: rgb(246, 246, 246) top center;
   overflow: hidden;
-  position: relative;
   position: relative;
   margin-bottom: -90px;
   z-index: 99;
@@ -471,7 +470,7 @@ h6 {
   .hero-single:after {
     position: absolute;
     /* width: calc(65% - 112px); */
-    width: 220%;
+    width: 240%;
     right: -100%;
     background-color: rgb(246, 246, 246);
     height: 200%;
@@ -522,7 +521,7 @@ h6 {
 
 @media (max-width: 991px) {
   #hero {
-    height: 100vh;
+    height: 50vh;
     text-align: center;
   }
 
@@ -533,12 +532,47 @@ h6 {
 
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 18px;
+    line-height: 18px;
   }
 
+  .dua-layanan {
+    /* margin-bottom: 20px;
+    padding: 20px 20px;
+    border-radius: 6px;
+    background: #05579e;
+    box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+    color: #f1f8ff; */
+    font-size: 12px;
+  }
+
+  .dua-layanan a {
+    /* margin-bottom: 20px;
+    padding: 20px 20px;
+    border-radius: 6px;
+    background: #05579e;
+    box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
+    color: #f1f8ff; */
+    font-size: 12px;
+  }
+
+  .icon-boxes .icon-box {
+    padding: 10px 10px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 5px 10px 29px 0 rgb(68 88 144 / 20%);
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.icon-boxes .title a {
+  font-size: 14px;
+}
+
+
   #hero h2 {
-    font-size: 18px;
+    font-size: 12px;
     line-height: 24px;
   }
 
