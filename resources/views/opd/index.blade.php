@@ -49,8 +49,8 @@
       <div style="margin: 3%;" class="hero-single">
         <div class="row">
           <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>ORPEG Bolaang Mongondow</h1>
-            <h2>Selamat datang di website resmi ORPEG kabupaten bolaang mongondow</h2>
+            <h1>Bagian Organisasi Kepegawaian</h1>
+            <h2>Selamat Datang di Website Resmi ORPEG Kabupaten Bolaang Mongondow</h2>
   
             <div>
   

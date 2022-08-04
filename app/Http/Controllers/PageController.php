@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Infografis;
+use App\Models\Link;
 use App\Models\News;
 use App\Models\Photo;
 use App\Models\Potensi;
 use App\Models\Profile;
+use App\Models\Sosmed;
 use App\Models\Video;
 
 class PageController extends Controller
@@ -32,15 +34,26 @@ class PageController extends Controller
         $postskegiatan = Category::where('name', 'kegiatan')->with('news')->take(4)->latest()->get();
         $events = Event::take(4)->latest()->get();
         $sliders = Slider::take(1)->latest()->get();
-        $services = Service::all();
-        return view('opd/index', compact(
+
+        $links = Link::latest()->get();
+        $services = Service::latest()->get();
+        $contact = Contact::find(1);
+        $sosmeds = Sosmed::get();
+
+        $profil = Profile::select('nama_opd', 'short_name', 'kata_sambutan', 'foto_pimpinan', 'logo', 'favicon', 'maklumat')->find(1);
+
+        return view('opd.index', compact(
             'posts',
             'events',
             'sliders',
             'services',
             'postssatu',
             'postskegiatan',
-            'infografis'
+            'infografis',
+            'links',
+            'contact',
+            'sosmeds',
+            'profil'
         ));
     }
 
