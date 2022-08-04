@@ -1,7 +1,7 @@
 
 <div class="d-flex align-items-center justify-content-between" style="margin-right: 10%; margin-left:10%;">
 
-  <a href="{{ ('/') }}" class="logo"><img src="{{ Storage::url($profil->logo) }}" alt="Brand Logo" class="img-fluid"></a>
+  <a href="{{ ('/') }}" class="logo"><img src="{{ $profil->logo ?? null != null ? Storage::url($profil->logo) : '' }}" alt="Brand Logo" class="img-fluid"></a>
   <!-- Uncomment below if you prefer to use text as a logo -->
   
 
@@ -29,6 +29,6 @@
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
 
-  <h1 class="logo"><a href="{{ ('/') }}">{{ Str::upper($profil->short_name) }}</a></h1>
+  <h1 class="logo"><a href="{{ ('/') }}">{{ $profil->short_name ?? null != null ? Str::upper($profil->short_name) : '' }}</a></h1>
 
 </div>
