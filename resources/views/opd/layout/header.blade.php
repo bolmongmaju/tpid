@@ -1,7 +1,7 @@
 
 <div class="d-flex align-items-center justify-content-between" style="margin-right: 10%; margin-left:10%;">
 
-  <a href="index.html" class="logo"><img src="{{ asset('assets-opd/img/logo.png') }}" alt="" class="img-fluid"></a>
+  <a href="{{ ('/') }}" class="logo"><img src="{{ asset('assets-opd/img/logo.png') }}" alt="" class="img-fluid"></a>
   <!-- Uncomment below if you prefer to use text as a logo -->
   
 

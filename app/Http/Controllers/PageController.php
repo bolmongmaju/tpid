@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\View;
 
 use App\Models\Event;
@@ -23,146 +24,184 @@ use App\Models\Video;
 
 class PageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $postssatu = News::with('tags')->take(1)->latest()->get();
         $posts = News::with('tags')->take(4)->latest()->get();
         $infografis = Infografis::take(4)->latest()->get();
-        $postskegiatan = Category::where('name','kegiatan')->with('news')->take(4)->latest()->get();
+        $postskegiatan = Category::where('name', 'kegiatan')->with('news')->take(4)->latest()->get();
         $events = Event::take(4)->latest()->get();
         $sliders = Slider::take(1)->latest()->get();
         $services = Service::all();
-        return view('opd/index',compact(
-            'posts','events','sliders','services','postssatu','postskegiatan','infografis'));
+        return view('opd/index', compact(
+            'posts',
+            'events',
+            'sliders',
+            'services',
+            'postssatu',
+            'postskegiatan',
+            'infografis'
+        ));
     }
 
-    public function eventDetail(Request $request, $id){
+    public function eventDetail(Request $request, $id)
+    {
         $events = Event::where('id', $id)->firstOrFail();
-        return view('opd/detail/agenda-detail',compact('events'));
+        return view('opd/detail/agenda-detail', compact('events'));
     }
 
-    public function program(){
+    public function program()
+    {
         $program = Profile::take(1)->latest()->get();
-        return view('opd/detail/program',compact('program'));
+        return view('opd/detail/program', compact('program'));
     }
 
-    public function pegawai(){
+    public function pegawai()
+    {
         $pegawai = Profile::take(1)->latest()->get();
-        return view('opd/detail/pegawai',compact('pegawai'));
+        return view('opd/detail/pegawai', compact('pegawai'));
     }
 
-    public function tupoksi(){
+    public function tupoksi()
+    {
         $tupoksi = Profile::take(1)->latest()->get();
-        return view('opd/detail/tupoksi',compact('tupoksi'));
+        return view('opd/detail/tupoksi', compact('tupoksi'));
     }
 
-    public function visimisi(){
+    public function visimisi()
+    {
         $visimisi = Profile::take(1)->latest()->get();
-        return view('opd/detail/visimisi',compact('visimisi'));
+        return view('opd/detail/visimisi', compact('visimisi'));
     }
 
-    public function foto(){
+    public function foto()
+    {
         $foto = Photo::latest()->paginate(12);
-        return view('opd/detail/foto',compact('foto'));
+        return view('opd/detail/foto', compact('foto'));
     }
-    public function video(){
+    public function video()
+    {
         $video = Video::latest()->paginate(12);
-        return view('opd/detail/video',compact('video'));
+        return view('opd/detail/video', compact('video'));
     }
-    public function kontak(){
+    public function kontak()
+    {
         $kontak = Contact::take(1)->latest()->get();
-        return view('opd/detail/kontak',compact('kontak'));
+        return view('opd/detail/kontak', compact('kontak'));
     }
-    
-    public function struktur(){
+
+    public function struktur()
+    {
         $struktur = Profile::take(1)->latest()->get();
-        return view('opd/detail/struktur',compact('struktur'));
+        return view('opd/detail/struktur', compact('struktur'));
     }
 
-    public function potensi(){
+    public function potensi()
+    {
         $potensi = Potensi::take(1)->latest()->get();
-        return view('opd/detail/potensi',compact('potensi'));
+        return view('opd/detail/potensi', compact('potensi'));
     }
 
-    public function dasarhukum(){
+    public function dasarhukum()
+    {
         $dasarhukum = Profile::take(1)->latest()->get();
-        return view('opd/detail/dasarhukum',compact('dasarhukum'));
+        return view('opd/detail/dasarhukum', compact('dasarhukum'));
     }
 
-    public function event(){
+    public function event()
+    {
         $events = Event::latest()->paginate(5);
-        return view('opd/detail/agenda',compact('events'));
+        return view('opd/detail/agenda', compact('events'));
     }
 
-    public function download(){
+    public function download()
+    {
         $downloads = Download::latest()->paginate(5);
-        return view('opd/detail/download',compact('downloads'));
+        return view('opd/detail/download', compact('downloads'));
     }
 
-    public function getDownload(Request $request, $id) {
+    public function getDownload(Request $request, $id)
+    {
         $entry = Download::where('id', '=', $id)->firstOrFail();
-        $pathToFile=storage_path()."/app/public/files/".$entry->file;
-        return response()->download($pathToFile); 
+        $pathToFile = storage_path() . "/app/public/files/" . $entry->file;
+        return response()->download($pathToFile);
     }
 
-    public function berita(Request $request) {
+    public function berita(Request $request)
+    {
         $kategori = Category::latest()->get();
         $posts = News::latest()->Paginate(5);
         $sidebar = News::skip(5)->Paginate(5);
         $tags = Tag::get();
-        
-        return view('opd/detail/berita',compact('posts','kategori','sidebar','tags'));
+
+        return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
 
-    public function beritaDetail(Request $request, $id){
-        if($request->has('cari')){
+    public function beritaDetail(Request $request, $id)
+    {
+        if ($request->has('cari')) {
             $kategori = Category::latest()->get();
             $tags = Tag::latest()->get();
             $sidebar = News::skip(5)->Paginate(5);
-            $posts = News::where('title','LIKE','%'.$request->cari.'%')->with('kategori')->get();
-            return view('opd/detail/berita',compact('posts','kategori','sidebar','tags'));
+            $posts = News::where('title', 'LIKE', '%' . $request->cari . '%')->with('kategori')->get();
+
+            $expiresAt = now()->addHours(3);
+            views($id)
+                ->cooldown($expiresAt)
+                ->record();
+
+            return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
         } else {
             $kategori = Category::latest()->simplePaginate(5);
             $posts = News::where('id', $id)->firstOrFail();
             $tags = Tag::latest()->get();
             $sidebar = News::skip(5)->Paginate(5);
-            return view('opd/detail/berita-detail',compact('posts','sidebar','kategori','tags'));
-        }
 
+            $expiresAt = now()->addHours(3);
+            views($posts)
+                ->cooldown($expiresAt)
+                ->record();
+
+            return view('opd/detail/berita-detail', compact('posts', 'sidebar', 'kategori', 'tags'));
+        }
     }
 
-    public function hascarberita(Request $request) {
-        if($request->has('cari')){
+    public function hascarberita(Request $request)
+    {
+        if ($request->has('cari')) {
             $kategori = Category::latest()->get();
             $tags = Tag::latest()->get();
             $sidebar = News::skip(5)->Paginate(5);
-            $posts = News::where('title','LIKE','%'.$request->cari.'%')->get();
+            $posts = News::where('title', 'LIKE', '%' . $request->cari . '%')->get();
         } else {
             $kategori = Category::latest()->simplePaginate(5);
             $posts = News::where('id', $id)->firstOrFail();
             $tags = Tag::latest()->get();
             $sidebar = News::skip(5)->Paginate(5);
         }
-        return view('opd/detail/hascarberita',compact('posts','kategori','sidebar','tags'));
+        return view('opd/detail/hascarberita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
 
 
-    public function kategori(Category $category) {
-       
-            $kategori = Category::latest()->get();
-            $tags = Tag::latest()->get();
-            $sidebar = News::skip(5)->Paginate(5);
-            $posts = $category->news()->latest()->paginate(4);
+    public function kategori(Category $category)
+    {
 
-        return view('opd/detail/berita',compact('posts','kategori','sidebar','tags'));
+        $kategori = Category::latest()->get();
+        $tags = Tag::latest()->get();
+        $sidebar = News::skip(5)->Paginate(5);
+        $posts = $category->news()->latest()->paginate(4);
+
+        return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
 
-    public function tag(Tag $tag) {
-       
+    public function tag(Tag $tag)
+    {
+
         $kategori = Category::latest()->get();
         $tags = Tag::latest()->get();
         $sidebar = News::skip(5)->Paginate(5);
         $posts = $tag->news()->latest()->paginate(4);
 
-    return view('opd/detail/berita',compact('posts','kategori','sidebar','tags'));
-}
+        return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
+    }
 }
