@@ -49,7 +49,7 @@
 
     
                 {{-- <h4>Struktur Organisasi</h4> --}}
-                <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="" style="  display: block;
+                <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="Struktur Organisasi" style="  display: block;
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 80%;">
