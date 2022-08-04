@@ -145,6 +145,11 @@
                         <span>Profil</span></a></li>
                         @endcan
 
+                        @can('profpegs.index')
+                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('admin.profil-pegawai.index') }}"><i class="fas fa-user"></i>
+                        <span>Profil Pegawai</span></a></li>
+                        @endcan
+
                         @can('contact.index')
                         <li class="{{ setActive('admin/contact') }}"><a class="nav-link" href="{{ route('admin.contact.index') }}"><i class="fas fa-phone"></i>
                         <span>Contact</span></a></li>

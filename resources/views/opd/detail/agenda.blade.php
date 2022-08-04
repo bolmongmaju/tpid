@@ -8,7 +8,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
+  <header id="header" class="fixed-top">
     @include('lolak.layout.header')
   </header><!-- End Header -->
 

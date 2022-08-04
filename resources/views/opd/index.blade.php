@@ -43,7 +43,7 @@
   @foreach ($sliders as $item)
   <section id="hero" class="d-flex align-items-center" style="background-image: url({{$item->image}});
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: right 200% bottom;
     background-size: cover;
     width: 100%;">
       <div style="margin: 3%;" class="hero-single">

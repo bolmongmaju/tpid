@@ -21,6 +21,7 @@ use App\Models\News;
 use App\Models\Photo;
 use App\Models\Potensi;
 use App\Models\Profile;
+use App\Models\Profpeg;
 use App\Models\Sosmed;
 use App\Models\Video;
 
@@ -71,7 +72,7 @@ class PageController extends Controller
 
     public function pegawai()
     {
-        $pegawai = Profile::take(1)->latest()->get();
+        $pegawai = Profpeg::latest()->get();
         return view('opd/detail/pegawai', compact('pegawai'));
     }
 

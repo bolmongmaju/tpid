@@ -21,7 +21,7 @@
     </div> --}}
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-tops">
+    <header id="header" class="fixed-top">
         @include('opd.layout.header')
     </header><!-- End Header -->
 
@@ -40,7 +40,7 @@
         </section><!-- End Breadcrumbs -->
 
         <!-- ======= About Us Section ======= -->
-        <section id="about" class="about">
+        {{-- <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
@@ -60,7 +60,42 @@
                 </div>
 
             </div>
-        </section><!-- End About Us Section -->
+        </section> --}}
+
+        <div class="container">
+
+            @forelse($pegawai as $item)
+            <div class="row">
+                <div class="col-sm">
+
+                    <div class="card-pegawai p-3">
+                        <div class="d-flex align-items-center">
+                            <div class="image">
+                                <img src="{{ Storage::url('public/files/'. $item->foto) }}"
+                                    class="rounded" style="margin-right: 10px; width: 100px; height: 100px;">
+                            </div>
+        
+                            <div class="ml-3 w-100">
+                                <h4 class="mb-0 mt-0">{{$item->nama}}</h4>
+                                <span>{{$item->jabatan}}</span>
+                                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                                    <div class="d-flex flex-column">
+                                        <span class="articles">NIP</span>
+                                        <span class="number1">{{$item->nip}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            @empty
+            Belum ada data pegawai
+            @endforelse
+
+        </div>
 
 
     </main><!-- End #main -->

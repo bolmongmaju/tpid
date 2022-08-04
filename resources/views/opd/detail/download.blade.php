@@ -52,6 +52,7 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama</th>
                                     <th>Tanggal upload</th>
                                     {{-- <th>Keterangan</th> --}}
@@ -63,6 +64,9 @@
                             <tbody>
                                 @forelse($downloads as $item)
                                 <tr>
+                                    <td>
+                                      {{$loop->iteration}}
+                                    </td>
                                     <td>
                                         <i class="fa fa-file"></i>
                                         <span class="user-subhead"> {{$item->nama}}</span>

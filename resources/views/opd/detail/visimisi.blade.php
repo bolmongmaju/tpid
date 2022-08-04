@@ -152,7 +152,7 @@
               {!! nl2br(($item->visi)) !!}
             </p>
             @empty
-              Belum ada data
+              Visi belum diisi
             @endforelse
           </div>
         </div>
@@ -168,7 +168,7 @@
               {!! nl2br(($item->misi)) !!}
             </p>
             @empty
-              Belum ada data
+              Misi belum diisi
             @endforelse
           </div>
         </div>
