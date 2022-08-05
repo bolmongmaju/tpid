@@ -7,33 +7,6 @@
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
-  {{-- @forelse($kontak as $item)
-  <div id="topbar" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">{{$item->email}}</a>
-        <i class="bi bi-phone-fill phone-icon"></i> {{$item->no_telp}}
-      </div>
-      <div class="cta d-none d-md-block">
-        <a href="#about" class="scrollto">DUKCAPIL</a>
-      </div>
-    </div>
-  </div>
-  @empty
-  <div id="topbar" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">-</a>
-        <i class="bi bi-phone-fill phone-icon"></i> -
-      </div>
-      <div class="cta d-none d-md-block">
-        <a href="#about" class="scrollto">-</a>
-      </div>
-    </div>
-  </div>
-  @endforelse --}}
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     @include('opd.layout.header')
@@ -49,8 +22,8 @@
       <div style="margin: 3%;" class="hero-single">
         <div class="row">
           <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>Bagian Organisasi Kepegawaian</h1>
-            <h2>Selamat Datang di Website Resmi ORPEG Kabupaten Bolaang Mongondow</h2>
+            <h1>{{ Str::title($item->title) }}</h1>
+            <h2>{{ Str::title($item->keterangan) }}</h2>
   
             <div>
   

@@ -43,6 +43,7 @@ class SliderController extends Controller
     {
         $this->validate($request, [
             'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'title' => 'required'
         ]);
 
         //upload image
@@ -50,8 +51,9 @@ class SliderController extends Controller
         $image->storeAs('public/sliders', $image->hashName());
 
         $slider = Slider::create([
-            'image' => $image->hashName(),
-            'title' => $request->input('title')
+            'image'      => $image->hashName(),
+            'title'      => $request->input('title'),
+            'keterangan' => $request->input('keterangan')
         ]);
 
         if ($slider) {
