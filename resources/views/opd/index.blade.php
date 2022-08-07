@@ -119,6 +119,8 @@
 
     </section><!-- End Recent Blog Posts Section -->
 
+    @include('opd.detail.agenda')
+
     @include('opd.detail.contact')
 
   </main><!-- End #main -->

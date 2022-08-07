@@ -32,10 +32,8 @@ class PageController extends Controller
         $postssatu = News::with('tags')->take(1)->latest()->get();
         $posts = News::with('tags')->take(4)->latest()->get();
         $infografis = Infografis::take(4)->latest()->get();
-        $postskegiatan = Category::where('name', 'kegiatan')->with('news')->take(4)->latest()->get();
         $events = Event::take(4)->latest()->get();
         $sliders = Slider::take(1)->latest()->get();
-
         $links = Link::latest()->get();
         $services = Service::latest()->get();
         $contact = Contact::find(1);
@@ -49,19 +47,12 @@ class PageController extends Controller
             'sliders',
             'services',
             'postssatu',
-            'postskegiatan',
             'infografis',
             'links',
             'contact',
             'sosmeds',
             'profil'
         ));
-    }
-
-    public function eventDetail(Request $request, $id)
-    {
-        $events = Event::where('id', $id)->firstOrFail();
-        return view('opd/detail/agenda-detail', compact('events'));
     }
 
     public function program()
@@ -98,11 +89,6 @@ class PageController extends Controller
         $video = Video::latest()->paginate(12);
         return view('opd/detail/video', compact('video'));
     }
-    public function kontak()
-    {
-        $kontak = Contact::take(1)->latest()->get();
-        return view('opd/detail/kontak', compact('kontak'));
-    }
 
     public function struktur()
     {
@@ -110,22 +96,10 @@ class PageController extends Controller
         return view('opd/detail/struktur', compact('struktur'));
     }
 
-    public function potensi()
-    {
-        $potensi = Potensi::take(1)->latest()->get();
-        return view('opd/detail/potensi', compact('potensi'));
-    }
-
     public function dasarhukum()
     {
         $dasarhukum = Profile::take(1)->latest()->get();
         return view('opd/detail/dasarhukum', compact('dasarhukum'));
-    }
-
-    public function event()
-    {
-        $events = Event::latest()->paginate(5);
-        return view('opd/detail/agenda', compact('events'));
     }
 
     public function download()
