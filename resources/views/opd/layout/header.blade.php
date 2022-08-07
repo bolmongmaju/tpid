@@ -24,7 +24,8 @@
           <li><a class="{{ (request()->is('video')) ? 'active' : '' }}" href="{{ ('video') }}">Video</a></li>
         </ul>
       </li>
-      <li><a class="nav-link scrollto " href="{{ ('/download') }}" class="{{ (request()->is('/')) ? 'active' : '' }}">File/Dokumen</a></li>
+      <li><a class="nav-link scrollto " href="{{ ('/download') }}" class="{{ (request()->is('/download')) ? 'active' : '' }}">File/Dokumen</a></li>
+      <li><a class="nav-link scrollto " href="#contact" class="{{ (request()->is('#contact')) ? 'active' : '' }}">Kontak</a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
