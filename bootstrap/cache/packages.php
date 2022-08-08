@@ -1,4 +1,11 @@
 <?php return array (
+  'cyrildewit/eloquent-viewable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'CyrildeWit\\EloquentViewable\\EloquentViewableServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 

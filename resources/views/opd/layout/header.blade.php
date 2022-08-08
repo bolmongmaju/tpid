@@ -1,7 +1,7 @@
 
 <div class="d-flex align-items-center justify-content-between" style="margin-right: 10%; margin-left:10%;">
 
-  <a href="index.html" class="logo"><img src="{{ asset('assets-opd/img/logo.png') }}" alt="" class="img-fluid"></a>
+  <a href="{{ ('/') }}" class="logo"><img src="{{ $profil->logo ?? null != null ? Storage::url($profil->logo) : '' }}" alt="Brand Logo" class="img-fluid"></a>
   <!-- Uncomment below if you prefer to use text as a logo -->
   
 
@@ -24,11 +24,12 @@
           <li><a class="{{ (request()->is('video')) ? 'active' : '' }}" href="{{ ('video') }}">Video</a></li>
         </ul>
       </li>
-      <li><a class="nav-link scrollto " href="{{ ('/download') }}" class="{{ (request()->is('/')) ? 'active' : '' }}">File/Dokumen</a></li>
+      <li><a class="nav-link scrollto " href="{{ ('/download') }}" class="{{ (request()->is('/download')) ? 'active' : '' }}">File/Dokumen</a></li>
+      <li><a class="nav-link scrollto " href="#contact" class="{{ (request()->is('#contact')) ? 'active' : '' }}">Kontak</a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
 
-  <h1 class="logo"><a href="index.html">Orpeg</a></h1>
+  <h1 class="logo"><a href="{{ ('/') }}">{{ $profil->short_name ?? null != null ? Str::upper($profil->short_name) : '' }}</a></h1>
 
 </div>

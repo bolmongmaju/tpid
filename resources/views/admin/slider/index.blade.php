@@ -42,6 +42,17 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>KETERANGAN (Opsional)</label>
+                                <input type="text" name="keterangan" placeholder="Masukkan Keterangan" class="form-control @error('keterangan') is-invalid @enderror">
+
+                                @error('keterangan')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPLOAD</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
@@ -65,6 +76,7 @@
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">FOTO</th>
                                 <th scope="col">CAPTION</th>
+                                <th scope="col">KETERANGAN</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -74,6 +86,7 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($sliders->currentPage()-1) * $sliders->perPage() }}</th>
                                     <td><img src="{{ $slider->image }}" style="width: 200px"></td>
                                     <td>{{ $slider->title }}</td>
+                                    <td>{{ $slider->keterangan }}</td>
                                     <td class="text-center">
                                         @can('sliders.delete')
                                             <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $slider->id }}">

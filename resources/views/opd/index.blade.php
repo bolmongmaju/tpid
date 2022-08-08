@@ -7,33 +7,6 @@
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
-  {{-- @forelse($kontak as $item)
-  <div id="topbar" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">{{$item->email}}</a>
-        <i class="bi bi-phone-fill phone-icon"></i> {{$item->no_telp}}
-      </div>
-      <div class="cta d-none d-md-block">
-        <a href="#about" class="scrollto">DUKCAPIL</a>
-      </div>
-    </div>
-  </div>
-  @empty
-  <div id="topbar" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">-</a>
-        <i class="bi bi-phone-fill phone-icon"></i> -
-      </div>
-      <div class="cta d-none d-md-block">
-        <a href="#about" class="scrollto">-</a>
-      </div>
-    </div>
-  </div>
-  @endforelse --}}
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     @include('opd.layout.header')
@@ -49,27 +22,11 @@
       <div style="margin: 3%;" class="hero-single">
         <div class="row">
           <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>ORPEG Bolaang Mongondow</h1>
-            <h2>Selamat datang di website resmi ORPEG kabupaten bolaang mongondow</h2>
-{{--   
+            <h1>{{ Str::title($item->title) }}</h1>
+            <h2>{{ Str::title($item->keterangan) }}</h2>
+  
             <div>
-  
-              <div class="row" style="margin-top: 2%;">
-                <div class="col-6" data-aos="fade-up" data-aos-delay="100">
-                  <div class="dua-layanan">
-                    <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
-                    <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
-                  </div>
-                </div>
-                <div class="col-6" data-aos="fade-up" data-aos-delay="100">
-                  <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
-                    <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
-                    <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
-                  </div>
-                </div>
-              </div>
-  
-            </div> --}}
+            </div>
   
           </div>
           <div class="col-lg-4 order-1 order-lg-2 hero-img rounded">
@@ -149,6 +106,12 @@
       </div>
 
     </section><!-- End Recent Blog Posts Section -->
+
+    @include('opd.detail.agenda')
+
+    @include('opd.detail.infografis')
+
+    @include('opd.detail.contact')
 
   </main><!-- End #main -->
 

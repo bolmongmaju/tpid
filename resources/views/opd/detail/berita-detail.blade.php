@@ -47,7 +47,7 @@
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$posts->user->name}}</a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ \Carbon\Carbon::parse($posts->created_at)->diffForhumans() }}</time></a></li>
-
+                  <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="blog-single.html">{{views($posts)->count()}}</a></li>
                 </ul>
               </div>
 

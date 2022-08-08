@@ -5,18 +5,21 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 
-class News extends Model
+class News extends Model implements Viewable
 {
+    use InteractsWithViews;
     use HasFactory;
-    
+
     /**
      * guarded
      *
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
      * category
      *
@@ -30,9 +33,8 @@ class News extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
 
-   }
-    
     /**
      * tags
      *
@@ -53,7 +55,7 @@ class News extends Model
     {
         return asset('storage/news_images/' . $image);
     }
-    
+
     /**
      * getCreatedAtAttribute
      *
@@ -61,7 +63,7 @@ class News extends Model
      * @return void
      */
     public function getCreatedAtAttribute($date)
-    {   
+    {
         return Carbon::parse($date)->format('d-M-Y');
     }
 }

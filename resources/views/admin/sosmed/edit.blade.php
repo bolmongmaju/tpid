@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 <label>ICON</label>
-                                <input type="text" name="icon" value="{{ old('icon') ?? $sosmed->icon }}" placeholder="fas fa-user" class="form-control @error('icon') is-invalid @enderror">
+                                <input type="text" name="icon" value="{{ old('icon') ?? $sosmed->icon }}" placeholder="bx bxl-facebook" class="form-control @error('icon') is-invalid @enderror">
 
                                 @error('icon')
                                 <div class="invalid-feedback" style="display: block">

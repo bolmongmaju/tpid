@@ -6,19 +6,6 @@
 </head>
 
 <body>
-    <!-- ======= Top Bar ======= -->
-    {{-- <div id="topbar" class="fixed-top d-flex align-items-center topbar-inner-pages">
-      <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
-          <i class="bi bi-phone-fill phone-icon"></i> +1 5589 55488 55
-        </div>
-        <div class="cta d-none d-md-block">
-          <a href="#about" class="scrollto">Get Started</a>
-        </div>
-      </div>
-    </div> --}}
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     @include('opd.layout.header')
@@ -49,7 +36,7 @@
 
     
                 {{-- <h4>Struktur Organisasi</h4> --}}
-                <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="" style="  display: block;
+                <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="Struktur Organisasi" style="  display: block;
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 80%;">

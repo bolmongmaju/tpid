@@ -1,50 +1,32 @@
-{{-- <div class="footer-newsletter">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <h4>Cari Berita</h4>
-        <p>Cari Berita Disini</p>
-      </div>
-      <div class="col-lg-6">
-        <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Cari">
-        </form>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
-{{-- @foreach ($kontak as $item)
 <div class="footer-top">
   <div class="container">
     <div class="row">
 
       <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Useful Links</h4>
+        <h4>Link Terkait</h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          @forelse ($links as $link)
+          <li><i class="bx bx-chevron-right"></i> <a href="{{ $link->url }}" target="_blank">{{ $link->name }}</a></li>
+          @empty
+          <li><i class="bx bx-chevron-right"></i> <a href="#">isi dengan link terkait</a></li>
+          @endforelse
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Our Services</h4>
+        <h4>Layanan</h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+          @forelse ($services as $service)
+          <li><i class="bx bx-chevron-right"></i> <a href="{{ $service->link }}" target="_blank">{{ $service->nama }}</a></li>
+          @empty
+          <li><i class="bx bx-chevron-right"></i> <a href="#">isi dengan layanan</a></li>
+          @endforelse
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 footer-contact">
-        <h4>Kontak</h4>
+        <h4>Visitor</h4>
         <p>
-          {{$item->email}} <br><br>
           <strong>Phone:</strong> +1 5589 55488 55<br>
           <strong>Email:</strong> info@example.com<br>
         </p>
@@ -52,25 +34,27 @@
       </div>
 
       <div class="col-lg-3 col-md-6 footer-info">
-        <h3>About Anyar</h3>
-        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+        <h3>Hubungi Kami</h3>
+        <p>{{ $contact->alamat ?? null }} <br><br>
+          <strong>Phone:</strong> {{ $contact->no_telp ?? null }}<br>
+          <strong>Email:</strong> {{ $contact->email ?? null }}<br>
+        </p>
         <div class="social-links mt-3">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          @forelse ($sosmeds as $sosmed)
+          <a href="{{ $sosmed->url }}" target="_blank" class="{{ $sosmed->name }}"><i class="{{ $sosmed->icon }}"></i></a>
+          @empty
+          <p>isi dengan sosial media</p>
+          @endforelse
         </div>
       </div>
 
     </div>
   </div>
 </div>
-@endforeach --}}
 
 <div class="container">
   <div class="copyright">
-    &copy; Copyright {{ date('Y') }} <strong><span>ORPEG</span></strong>. All Rights Reserved
+    &copy; Copyright {{ date('Y') }} <strong><span>{{ $profil->short_name ?? null != null ? Str::upper($profil->short_name) : '' }}</span></strong>. All Rights Reserved
   </div>
   <div class="credits">
     Designed by <a href="https://diskominfo.go.id/">Diskominfo Bolaang Mongondow</a>
