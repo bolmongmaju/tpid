@@ -1,8 +1,8 @@
 <!-- ======= Icon Boxes Section ======= -->
 <section id="icon-boxes" class="icon-boxes">
   <div class="container">
-    @forelse ($events as $item)
     <div class="row justify-content-md-center">
+      @forelse ($events as $item)
       <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
         <div class="icon-box">
           <div class="icon"><h2>Agenda</h2></div>
@@ -17,9 +17,9 @@
           <h4 class="description">{{ $item->location }}</h4>
         </div>
       </div>
+      @empty
+      <p>Tidak Ada Agenda</p>
+      @endforelse
     </div>
-    @empty
-        <p>Tidak Ada Agenda</p>
-    @endforelse
   </div>
 </section><!-- End Icon Boxes Section -->

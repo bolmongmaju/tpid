@@ -24,6 +24,7 @@ use App\Models\Profile;
 use App\Models\Profpeg;
 use App\Models\Sosmed;
 use App\Models\Video;
+use Illuminate\Support\Facades\Http;
 
 class PageController extends Controller
 {
@@ -31,7 +32,6 @@ class PageController extends Controller
     {
         $postssatu = News::with('tags')->take(1)->latest()->get();
         $posts = News::with('tags')->take(4)->latest()->get();
-        $infografis = Infografis::take(4)->latest()->get();
         $events = Event::take(4)->latest()->get();
         $sliders = Slider::take(1)->latest()->get();
         $links = Link::latest()->get();
@@ -40,6 +40,8 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
 
         $profil = Profile::select('nama_opd', 'short_name', 'kata_sambutan', 'foto_pimpinan', 'logo', 'favicon', 'maklumat')->find(1);
+
+        $infografis = Http::get('http://bolmongkab.go.id/api/infografis')['data']['data'];
 
         return view('opd.index', compact(
             'posts',

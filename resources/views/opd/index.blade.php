@@ -121,6 +121,8 @@
 
     @include('opd.detail.agenda')
 
+    @include('opd.detail.infografis')
+
     @include('opd.detail.contact')
 
   </main><!-- End #main -->
