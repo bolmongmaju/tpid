@@ -98,7 +98,7 @@
           </div>
           @empty --}}
 
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="dua-layanan">
               {{-- <i class="bi bi-card-checklist"></i> --}}
               <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>

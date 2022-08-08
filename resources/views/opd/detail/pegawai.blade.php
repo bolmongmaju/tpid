@@ -39,63 +39,36 @@
             </div>
         </section><!-- End Breadcrumbs -->
 
-        <!-- ======= About Us Section ======= -->
-        {{-- <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
+        <section id="card-pegawai" class="card-pegawai" style="margin-bottom: 2%">
 
-                <div class="section-title">
-                    <h2>Daftar Pegawai</h2>
-                </div>
-
-                <div class="row content">
-                    <div class="col-lg-12">
-                        @forelse($pegawai as $item)
-                        <p>
-                            {!! nl2br(($item->pegawai)) !!}
-                        </p>
-                        @empty
-                        Belum ada data
-                        @endforelse
-                    </div>
-                </div>
-
-            </div>
-        </section> --}}
-
-        <div class="container">
-
-            @forelse($pegawai as $item)
-            <div class="row">
-                <div class="col-sm">
-
-                    <div class="card-pegawai p-3">
-                        <div class="d-flex align-items-center">
-                            <div class="image">
-                                <img src="{{ Storage::url('public/files/'. $item->foto) }}"
-                                    class="rounded" style="margin-right: 10px; width: 100px; height: 100px;">
-                            </div>
-        
-                            <div class="ml-3 w-100">
-                                <h4 class="mb-0 mt-0">{{$item->nama}}</h4>
-                                <span>{{$item->jabatan}}</span>
-                                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
-                                    <div class="d-flex flex-column">
-                                        <span class="articles">NIP</span>
-                                        <span class="number1">{{$item->nip}}</span>
-                                    </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    @forelse($pegawai as $item)
+                    <div class="col-md-3">
+                        <div>
+                            <div class="one" style="padding: 2%;">
+                                <div class="text-right pr-2 pt-1"><i class="mdi mdi-dots-vertical dotdot"></i></div>
+                                <div class="d-flex justify-content-center"><img style="width: 100px; height: 100px; margin:2%;" src="{{ Storage::url('public/files/'. $item->foto) }}" class="rounded-circle"></div>
+                                <div class="text-center">
+                                    <span class="name">{{$item->nama}}</span>
+                                    <p class="mail">{{$item->jabatan}}</p>
                                 </div>
+                                <div class="text-center">
+                                    <span class="name">NIP</span>
+                                    <p class="mail">{{$item->nip}}</p>
+                                </div>
+            
                             </div>
-                        </div>
+                            </div>
                     </div>
-
-
-                </div>
+                    @empty
+                    Belum ada data pegawai
+                    @endforelse
+                  </div>
+    
             </div>
-            @empty
-            Belum ada data pegawai
-            @endforelse
 
-        </div>
+        </section>
 
 
     </main><!-- End #main -->

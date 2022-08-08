@@ -3137,33 +3137,41 @@ tambahan */
 
 
 /* card pegawai */
-.card-pegawai {
-    width: 400px;
-    border: none;
-    border-radius: 10px;
-
-    background-color: #fff;
+.one{
+	background-color: #ecf6fe;
+	border-radius: 5px;
 }
-
-.card-pegawai h4 {
-  font-size: 14px;
-  font-family: "Quicksand", sans-serif;
+.dotdot{
+	font-size: 13px !important;
+	font-weight: lighter !important;
+	color: #76787b;
 }
-
-.card-pegawai span {
-  font-size: 14px;
-  font-family: "Quicksand", sans-serif;
+.name{
+	font-size: 15px;
+	color: #b7b7b7;
+	font-weight: 600;
 }
-
-.stats {
-
-    background: #f2f5f8 !important;
-    color: #000 !important;
+.mail{
+	font-size: 8px;
+	font-weight: 500;
+	color: #5a5d64;
 }
-
-.articles {
-    font-size: 10px;
-    color: #a1aab9;
+.total{
+	font-size: 6px;
+	font-weight: 500;
+	color: #8a8b8f;
 }
-
-
+.money{
+	font-size: 18px;
+	font-weight: 600;
+	color: #dedbdb;
+}
+.details{
+	font-size: 8px;
+	font-weight: 500;
+	color: #0606b5;
+}
+.right{
+	font-size: 12px;
+	color: #0606b5;
+}
