@@ -1,7 +1,7 @@
 
 <div class="d-flex align-items-center justify-content-between" style="margin-right: 10%; margin-left:10%;">
 
-  <a href="{{ ('/') }}" class="logo"><img src="{{ $profil->logo ?? null != null ? Storage::url($profil->logo) : '' }}" alt="Brand Logo" class="img-fluid"></a>
+  <a href="{{ ('/') }}" class="logo"><img src="{{ $profil->logo ?? null != null ? Storage::url($profil->logo) : '' }}" alt="Logo" class="img-fluid"></a>
   <!-- Uncomment below if you prefer to use text as a logo -->
   
 

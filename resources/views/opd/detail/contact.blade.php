@@ -13,25 +13,25 @@
             <div class="address">
               <i class="bi bi-geo-alt"></i>
               <h4>Alamat:</h4>
-              <p>{{ $contact->alamat }}</p>
+              <p>{{ $contact->alamat ?? null != null ? $contact->alamat : 'Belum diisi' }}</p>
             </div>
 
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>{{ $contact->email }}</p>
+              <p>{{ $contact->email ?? null != null ? $contact->email : 'Belum diisi' }}</p>
             </div>
 
             <div class="phone">
               <i class="bi bi-phone"></i>
               <h4>Telepon/Whatsapp:</h4>
-              <p>{{ $contact->no_telp }}</p>
+              <p>{{ $contact->no_telp ?? null != null ? $contact->no_telp : 'Belum diisi' }}</p>
             </div>
 
             <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Jam Kantor:</h4>
-                <p>{{ $contact->hari_kerja }}, Pukul {{ $contact->jam_buka }} - {{ $contact->jam_tutup }} WITA</p>
+                <p>{{ $contact->hai_kerja ?? null != null ? $contact->hari_kerja : 'Belum diisi' }}, Pukul {{ $contact->jam_buka ?? null != null ? $contact->jam_buka : '' }} - {{ $contact->jam_tutup ?? null != null ? $contact->jam_tutup : '' }} WITA</p>
               </div>
 
           </div>
@@ -40,7 +40,7 @@
 
         <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
             <div>
-            {!! $contact->maps !!}
+            {!! $contact->maps ?? null != null ? $contact->maps : 'Belum diisi' !!}
             </div>
         </div>
 
