@@ -21,7 +21,7 @@ class CreateProfilesTable extends Migration
             $table->text('sejarah')->nullable();
             $table->text('visi')->nullable();
             $table->text('misi')->nullable();
-            $table->text('pegawai')->nullable();
+            // $table->text('pegawai')->nullable();
             $table->text('program')->nullable();
             $table->text('tupoksi')->nullable();
             $table->text('kata_sambutan')->nullable();

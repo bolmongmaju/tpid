@@ -39,9 +39,9 @@
             </div>
         </section><!-- End Breadcrumbs -->
 
-        <section id="card-pegawai" class="card-pegawai" style="margin-bottom: 2%">
+        <section id="card-pegawai" class="card-pegawai">
 
-            <div class="container">
+            {{-- <div class="container">
                 <div class="row justify-content-center">
                     @forelse($pegawai as $item)
                     <div class="col-md-3">
@@ -66,6 +66,30 @@
                     @endforelse
                   </div>
     
+            </div> --}}
+
+
+
+            <div class='container mx-auto mt-5 col-md-10 mt-100'>
+                <div class="row" style="justify-content: center">
+                    @forelse($pegawai as $item)
+                    <div class="card col-md-3 mt-100" style="margin-bottom: 5%;">
+                        <div class="card-content">
+                            <div class="card-body p-0">
+                                <div class="profile"> <img src="{{ Storage::url('public/files/'. $item->foto) }}"> </div>
+                                <div class="card-title"> {{$item->nama}}<br /> <small>{{$item->jabatan}}</small> </div>
+                                <div class="card-subtitle">
+                                    <p> <small class="text-muted"> {{$item->nip}} </small> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    <p style="margin: 3%">
+                        Belum ada data pegawai
+                    </p>
+                    @endforelse
+                </div>
             </div>
 
         </section>

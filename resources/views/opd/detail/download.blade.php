@@ -93,7 +93,14 @@
                                     </td>
                                 </tr>
                                 @empty
-                                Belum ada file/dokumen yang diupload
+                                <tr>
+                                  <td>
+                                      <span class="user-subhead" style="color: brown"> Belum ada file/dokumen yang diupload !</span>
+                                  </td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                              </tr>
                                 @endforelse
 
 

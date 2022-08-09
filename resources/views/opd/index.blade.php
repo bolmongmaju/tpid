@@ -13,7 +13,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  @foreach ($sliders as $item)
+  @forelse ($sliders as $item)
   <section id="hero" class="d-flex align-items-center" style="background-image: url({{$item->image}});
     background-repeat: no-repeat;
     background-position: right 200% bottom;
@@ -37,7 +37,31 @@
 
 
   </section>
-  @endforeach
+  @empty
+  <section id="hero" class="d-flex align-items-center" style="background-image: url({{ asset('assets-opd/img/image-kosong.png') }});
+    background-repeat: no-repeat;
+    background-position: right 200% bottom;
+    background-size: cover;
+    width: 100%;">
+      <div style="margin: 3%;" class="hero-single">
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            {{-- <h1>Belum diisi</h1>
+            <h2>Belum diisi</h2> --}}
+  
+            <div>
+            </div>
+  
+          </div>
+          <div class="col-lg-4 order-1 order-lg-2 hero-img rounded">
+            {{-- <img src="{{$item->image}}" class="img-fluid" alt=""> --}}
+          </div>
+        </div>
+      </div>
+
+
+  </section>
+  @endforelse
 
   <main id="main">
     <!-- ======= Icon Boxes Section ======= -->

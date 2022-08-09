@@ -99,7 +99,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>DAFTAR PEGAWAI</label>
                             <textarea class="form-control content @error('pegawai') is-invalid @enderror" name="pegawai"
                                 placeholder="Masukkan Daftar Pegawai" rows="10">{!! old('pegawai') !!}</textarea>
@@ -108,7 +108,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <label>TUPOKSI</label>
