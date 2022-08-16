@@ -1,12 +1,16 @@
 <!-- ======= Icon Boxes Section ======= -->
-<section id="icon-boxes" class="icon-boxes">
+<section id="icon-boxes" class="icon-boxes mt-5">
+
+  <div class="section-title">
+    <h2>Agenda</h2>
+    <p>Agenda terbaru</p>
+  </div>
+
   <div class="container">
     <div class="row justify-content-md-center">
       @forelse ($events as $item)
       <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
         <div class="icon-box">
-          <div class="icon"><h2>Agenda</h2></div>
-          <hr>
           <h4 class="title"><a href="#">{{ $item->title }}</a></h4>
           <hr>
           <h4 class="description"><i class='bx bxs-time'></i> Waktu</h4>

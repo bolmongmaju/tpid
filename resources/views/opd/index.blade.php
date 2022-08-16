@@ -14,29 +14,42 @@
 
   <!-- ======= Hero Section ======= -->
   @forelse ($sliders as $item)
-  <section id="hero" class="d-flex align-items-center" style="background-image: url({{$item->image}});
-    background-repeat: no-repeat;
-    background-position: right 200% bottom;
-    background-size: cover;
-    width: 100%;">
-      <div style="margin: 3%;" class="hero-single">
-        <div class="row">
-          <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1>{{ Str::title($item->title) }}</h1>
-            <h2>{{ Str::title($item->keterangan) }}</h2>
+
+  <section id="hero" class="d-flex align-items-center" style="margin-top: 100px;">
+
+    <div class="" style="margin: 10%">
+      <div class="row">
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>{{ Str::title($item->title) }}</h1>
+          <h2>{{ Str::title($item->keterangan) }}.</h2>
+          {{-- <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div> --}}
+          <div class="row justify-content-md-center mt-4">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="dua-layanan">
+                {{-- <i class="bi bi-card-checklist"></i> --}}
+                <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
+                <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
+              </div>
+          </div>
   
-            <div>
+          <div class="col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
+              <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
+              <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
             </div>
+          </div>
+          {{-- @endforelse --}}
   
-          </div>
-          <div class="col-lg-4 order-1 order-lg-2 hero-img rounded">
-            {{-- <img src="{{$item->image}}" class="img-fluid" alt=""> --}}
-          </div>
+        </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{{$item->image}}" class="img-fluid rounded" alt="">
         </div>
       </div>
+    </div>
 
+  </section><!-- End Hero -->
 
-  </section>
   @empty
   <section id="hero" class="d-flex align-items-center" style="background-image: url({{ asset('assets-opd/img/image-kosong.png') }});
     background-repeat: no-repeat;
@@ -58,30 +71,19 @@
           </div>
         </div>
       </div>
-
-
   </section>
+
   @endforelse
 
   <main id="main">
     <!-- ======= Icon Boxes Section ======= -->
-    <section id="icon-boxes" class="icon-boxes">
+    {{-- <section id="icon-boxes" class="icon-boxes">
       <div class="container">
 
         <div class="row justify-content-md-center">
 
-          {{-- @forelse ($events as $item)
-          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
-            <div class="icon-box">
-              <h4 class="title"><a href="{{ route('event-detail', $item->id) }}">{{$item->title}}</a></h4>
-              <p class="description">{{ strip_tags($item->date ) }}</p>
-            </div>
-          </div>
-          @empty --}}
-
           <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="dua-layanan">
-              {{-- <i class="bi bi-card-checklist"></i> --}}
               <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
               <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
             </div>
@@ -93,13 +95,13 @@
             <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
           </div>
         </div>
-        {{-- @endforelse --}}
 
       </div>
-    </section><!-- End Icon Boxes Section -->
+    </div>
+    </section> --}}
 
      <!-- ======= Recent Blog Posts Section ======= -->
-     <section id="recent-blog-posts" class="recent-blog-posts" style="background: #f1f8ff">
+     <section id="recent-blog-posts" class="recent-blog-posts mt-5" style="background: #f1f8ff">
 
       <div class="container" data-aos="fade-up">
 

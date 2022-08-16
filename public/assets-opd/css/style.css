@@ -431,77 +431,37 @@ h6 {
     display: block;
 }
 
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
+/* Hero Area CSS */
 #hero {
     width: 100%;
-    height: 65vh;
-    background: rgb(246, 246, 246) top center;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: -90px;
-    z-index: 99;
-}
-
-#hero .container {
+    height: 60vh;
+    background: #ffffff;
+    margin-bottom: -40px;
+  }
+  
+  #hero .container {
     padding-top: 84px;
-}
-
-/* #hero::before {
-  content: "";
-  position: absolute;
-  right: -100%;
-  top: 20%;
-  width: 240%;
-  height: 100%;
-  z-index: -1;
-  background-color: #e8ecf5;
-  transform: skewY(135deg);
-  background-image: url("../img/disdukcapil.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-} */
-
-
-@media (min-width: 830px) {
-
-    .hero-single:after {
-        position: absolute;
-        /* width: calc(65% - 112px); */
-        width: 240%;
-        right: -100%;
-        background-color: rgb(246, 246, 246);
-        height: 200%;
-        top: 0%;
-        left: -100%;
-        content: '';
-        z-index: -1;
-        transform: rotate(-80deg);
-    }
-
-
-}
-
-#hero h1 {
+  }
+  
+  #hero h1 {
     margin: 0;
-    font-size: 25px;
+    font-size: 42px;
     font-weight: 700;
     line-height: 56px;
     color: #0f394c;
-    /* text-transform: uppercase; */
-}
-
-#hero h2 {
+    text-transform: uppercase;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  #hero h2 {
     color: #1c698c;
     margin: 10px 0 0 0;
-    font-size: 17px;
-    font-weight: 700;
-}
-
-#hero .btn-get-started {
-    font-family: "Dosis", sans-serif;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  #hero .btn-get-started {
+    font-family: "Quicksand", sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
@@ -513,73 +473,47 @@ h6 {
     color: #fff;
     background: #49b5e7;
     text-transform: uppercase;
-}
-
-#hero .btn-get-started:hover {
+  }
+  
+  #hero .btn-get-started:hover {
     background: #76c7ed;
-}
+  }
 
-@media (max-width: 991px) {
+  #hero .hero-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (max-width: 991px) {
     #hero {
-        height: 50vh;
-        text-align: center;
+      height: 100vh;
+      text-align: center;
     }
-
+  
     #hero .hero-img img {
-        width: 50%;
+      width: 50%;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     #hero h1 {
-        font-size: 18px;
-        line-height: 18px;
+      font-size: 28px;
+      line-height: 36px;
     }
-
-    .dua-layanan {
-        /* margin-bottom: 20px;
-    padding: 20px 20px;
-    border-radius: 6px;
-    background: #05579e;
-    box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
-    color: #f1f8ff; */
-        font-size: 12px;
-    }
-
-    .dua-layanan a {
-        /* margin-bottom: 20px;
-    padding: 20px 20px;
-    border-radius: 6px;
-    background: #05579e;
-    box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
-    color: #f1f8ff; */
-        font-size: 12px;
-    }
-
-    .icon-boxes .icon-box {
-        padding: 10px 10px;
-        position: relative;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 5px 10px 29px 0 rgb(68 88 144 / 20%);
-        transition: all 0.3s ease-in-out;
-        border-radius: 10px;
-    }
-
-    .icon-boxes .title a {
-        font-size: 14px;
-    }
-
-
+  
     #hero h2 {
-        font-size: 12px;
-        line-height: 24px;
+      font-size: 18px;
+      line-height: 24px;
     }
-
+  
     #hero .hero-img img {
-        width: 80%;
+      width: 80%;
     }
-}
+  }
+  
 
 /*--------------------------------------------------------------
 # Sections General
