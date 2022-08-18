@@ -48,7 +48,7 @@
                     <h4>FILES</h4>
                   </div>
                   <div class="card-body">
-                    {{ App\Models\File::count() ?? '0' }}
+                    {{ App\Models\Download::count() ?? '0' }}
                   </div>
                 </div>
               </div>

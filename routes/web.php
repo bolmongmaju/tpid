@@ -1,23 +1,5 @@
 <?php
 
-// use App\Http\Controllers\Admin\BannerController;
-// use App\Http\Controllers\Admin\CategoryController;
-// use App\Http\Controllers\Admin\ContactController;
-// use App\Http\Controllers\Admin\EventController;
-// use App\Http\Controllers\Admin\FileController;
-// use App\Http\Controllers\Admin\LinkController;
-// use App\Http\Controllers\Admin\NewsController;
-// use App\Http\Controllers\Admin\PermissionController;
-// use App\Http\Controllers\Admin\PhotoController;
-// use App\Http\Controllers\Admin\ProfileController;
-// use App\Http\Controllers\Admin\RoleController;
-// use App\Http\Controllers\Admin\ServiceController;
-// use App\Http\Controllers\Admin\SliderController;
-// use App\Http\Controllers\Admin\SosmedController;
-// use App\Http\Controllers\Admin\TagController;
-// use App\Http\Controllers\Admin\UserController;
-// use App\Http\Controllers\Admin\VideoController;
-// use App\Http\Controllers\Admin\DownloadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +10,6 @@ Route::get('/program-dan-kegiatan', [App\Http\Controllers\PageController::class,
 Route::get('/daftar-pegawai', [App\Http\Controllers\PageController::class, 'pegawai']);
 Route::get('/tupoksi', [App\Http\Controllers\PageController::class, 'tupoksi']);
 Route::get('/struktur', [App\Http\Controllers\PageController::class, 'struktur']);
-Route::get('/potensi', [App\Http\Controllers\PageController::class, 'potensi']);
 Route::get('/foto', [App\Http\Controllers\PageController::class, 'foto']);
 Route::get('/video', [App\Http\Controllers\PageController::class, 'video']);
 Route::get('/kontak', [App\Http\Controllers\PageController::class, 'kontak']);
@@ -50,32 +31,6 @@ Auth::routes(['register' => false]);
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
-        // Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
-        // Route::resource('permission', PermissionController::class)->except(['show', 'create', 'edit', 'update', 'delete']);
-        // Route::resource('role', RoleController::class)->except('show');
-        // Route::resource('user', UserController::class)->except('show');
-        // Route::resource('news', NewsController::class)->except('show');
-        // Route::resource('category', CategoryController::class)->except('show');
-        // Route::resource('tag', TagController::class)->except('show');
-        // Route::resource('event', EventController::class)->except('show');
-        // Route::resource('file', FileController::class)->except('show');
-        // Route::resource('service', ServiceController::class)->except('show');
-        // Route::resource('banner', BannerController::class)->except('show');
-        // Route::resource('profile', ProfileController::class)->except(['show', 'delete']);
-        // Route::resource('contact', ContactController::class)->except(['show', 'delete']);
-        // Route::resource('link', LinkController::class)->except('show');
-        // Route::resource('sosmed', SosmedController::class)->except('show');
-        // Route::resource('photo', PhotoController::class)->except(['show', 'create', 'edit', 'update']);
-        // Route::resource('video', VideoController::class)->except('show');
-        // Route::resource('slider', SliderController::class)->except(['show', 'create', 'edit', 'update']);
-        // Route::resource('admin-download', DownloadController::class, ['except' => 'show' ,'as' => 'admin']);
-        // Route::resource('infografis', App\Http\Controllers\Admin\InfografisController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-
-
-
-
-
-
 
         //dashboard
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard.index');
@@ -116,24 +71,6 @@ Route::prefix('admin')->group(function () {
         //profil pegawai
         Route::resource('/profil-pegawai', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
 
-        //file
-        Route::resource('/file', App\Http\Controllers\Admin\FileController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //leaders
-        Route::resource('/leader', App\Http\Controllers\Admin\LeaderController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //statik
-        Route::resource('/statik', App\Http\Controllers\Admin\StatikController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //travel
-        Route::resource('/travel', App\Http\Controllers\Admin\TravelController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //instansi
-        Route::resource('/instansi', App\Http\Controllers\Admin\InstansiController::class, ['except' => 'show', 'as' => 'admin']);
-
-        //statik
-        Route::resource('/dinasdetail', App\Http\Controllers\Admin\DinasdetailController::class, ['except' => 'show', 'as' => 'admin']);
-
         //banners
         Route::resource('/banner', App\Http\Controllers\Admin\BannerController::class, ['except' => 'show', 'as' => 'admin']);
 
@@ -145,9 +82,6 @@ Route::prefix('admin')->group(function () {
 
         //photo
         Route::resource('/photo', App\Http\Controllers\Admin\PhotoController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
-
-        //infografis
-        Route::resource('/infografis', App\Http\Controllers\Admin\InfografisController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
 
         //video
         Route::resource('/video', App\Http\Controllers\Admin\VideoController::class, ['except' => 'show', 'as' => 'admin']);

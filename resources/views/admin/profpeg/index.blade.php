@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Halaman</h1>
+            <h1>Profil Pegawai</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-video"></i> Halaman</h4>
+                    <h4><i class="fas fa-user"></i> Profil Pegawai</h4>
                 </div>
 
                 <div class="card-body">

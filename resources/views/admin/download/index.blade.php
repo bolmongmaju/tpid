@@ -4,18 +4,18 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Halaman</h1>
+            <h1>Files</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-video"></i> Halaman</h4>
+                    <h4><i class="fas fa-file-image"></i> Files</h4>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.statik.index') }}" method="GET">
+                    <form action="{{ route('admin.admin-download.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 @can('downloads.create')

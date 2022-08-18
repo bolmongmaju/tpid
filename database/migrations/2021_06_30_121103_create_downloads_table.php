@@ -17,6 +17,7 @@ class CreateDownloadsTable extends Migration
             $table->id();
             $table->string('file');
             $table->string('nama');
+            $table->string('slug');
             $table->timestamps();
         });
     }

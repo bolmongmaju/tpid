@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DownloadController extends Controller
 {
-                /**
+    /**
      * __construct
      *
      * @return void
@@ -27,8 +27,8 @@ class DownloadController extends Controller
      */
     public function index()
     {
-        $downloads = Download::latest()->when(request()->q, function($downloads) {
-            $downloads = $downloads->where('nama', 'like', '%'. request()->q . '%');
+        $downloads = Download::latest()->when(request()->q, function ($downloads) {
+            $downloads = $downloads->where('nama', 'like', '%' . request()->q . '%');
         })->paginate(10);
 
         return view('admin.download.index', compact('downloads'));
@@ -53,8 +53,8 @@ class DownloadController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'=>'required',
-            'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:200048',
+            'nama' => 'required',
+            'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
         ]);
 
         //upload image
@@ -62,14 +62,14 @@ class DownloadController extends Controller
         $file->storeAs('public/files', $file->hashName());
 
         $download = Download::create([
-            'file'     => $file->hashName(),
+            'file' => $file->hashName(),
             'nama' => $request->input('nama')
         ]);
 
-        if($download){
+        if ($download) {
             //redirect dengan pesan sukses
             return redirect()->route('admin.admin-download.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('admin.admin-download.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
@@ -82,16 +82,16 @@ class DownloadController extends Controller
         //     'nama'=>'required',
         //     'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:200048',
         // ]);
-  
+
         // $input = $request->all();
-  
+
         // if ($file = $request->file('file')) {
         //     $destinationPath = 'public/download-files';
         //     $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
         //     $file->move($destinationPath, $profileFile);
         //     $input['file'] = "$profileFile";
         // }
-    
+
         // Download::create($input);
 
         // if($input){
@@ -111,7 +111,7 @@ class DownloadController extends Controller
      */
     public function show(Download $download)
     {
-        return view('admin.download.show',compact('download'));
+        return view('admin.download.show', compact('download'));
     }
 
     /**
@@ -137,24 +137,24 @@ class DownloadController extends Controller
         $request->validate([
             'nama' => 'required'
         ]);
-  
+
         $input = $request->all();
-  
+
         if ($file = $request->file('file')) {
             $destinationPath = 'public/download-files/';
             $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $profileFile);
             $input['file'] = "$profileFile";
-        }else{
+        } else {
             unset($input['file']);
         }
-          
+
         $file->update($input);
 
-        if($file){
+        if ($file) {
             //redirect dengan pesan sukses
             return redirect()->route('admin.admin-download.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('admin.admin-download.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -169,14 +169,14 @@ class DownloadController extends Controller
     public function destroy($id)
     {
         $download = Download::findOrFail($id);
-        $file = Storage::disk('local')->delete('public/download-files/'.$download->file);
+        $file = Storage::disk('local')->delete('public/download-files/' . $download->file);
         $download->delete();
 
-        if($download){
+        if ($download) {
             return response()->json([
                 'status' => 'success'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error'
             ]);

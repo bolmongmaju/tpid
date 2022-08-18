@@ -100,15 +100,10 @@
                             <li class="{{ setActive('admin/banner') }}"><a class="nav-link" href="{{ route('admin.banner.index') }}"><i class="fas fa-image"></i>
                         <span>Banner</span></a></li>
                         @endcan
-
-                        @can('files.index')
-                            <li class="{{ setActive('admin/file') }}"><a class="nav-link" href="{{ route('admin.file.index') }}"><i class="fas fa-file-image"></i>
-                        <span>Files</span></a></li>
-                        @endcan
                         
                         @can('downloads.index')
-                            <li class="{{ setActive('admin/download') }}"><a class="nav-link" href="{{ route('admin.admin-download.index') }}"><i class="fas fa-file-image"></i>
-                        <span>Download</span></a></li>
+                            <li class="{{ setActive('admin/admin-download') }}"><a class="nav-link" href="{{ route('admin.admin-download.index') }}"><i class="fas fa-file-image"></i>
+                        <span>Files</span></a></li>
                         @endcan
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
@@ -119,11 +114,6 @@
                             <li class="{{ setActive('admin/photo') }}"><a class="nav-link"
                         href="{{ route('admin.photo.index') }}"><i class="fas fa-image"></i>
                         <span>Foto</span></a></li>
-                        @endcan
-
-                        @can('infografis.index')
-                        <li class="{{ setActive('admin/infografis') }}"><a class="nav-link" href="{{ route('admin.infografis.index') }}"><i class="fas fa-laptop"></i>
-                        <span>Infografis</span></a></li>
                         @endcan
 
                         @can('videos.index')
@@ -146,7 +136,7 @@
                         @endcan
 
                         @can('profpegs.index')
-                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('admin.profil-pegawai.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/profil-pegawai') }}"><a class="nav-link" href="{{ route('admin.profil-pegawai.index') }}"><i class="fas fa-user"></i>
                         <span>Profil Pegawai</span></a></li>
                         @endcan
 
