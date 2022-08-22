@@ -44,7 +44,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                             <button type="submit" class="btn btn-primary"
                                 onClick="return confirm('Ubah Data ?')">Submit</button>
-                            <a class="btn btn-light" href="{{ route('admin.download.index') }}">Cancel</a>
+                            <a class="btn btn-light" href="{{ route('admin.filedownload.index') }}">Cancel</a>
                         </div>
 
                     </form>

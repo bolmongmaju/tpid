@@ -136,7 +136,7 @@
                         @endcan
 
                         @can('profpegs.index')
-                        <li class="{{ setActive('admin/pegawai') }}"><a class="nav-link" href="{{ route('admin.pegawai.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('admin.profpeg.index') }}"><i class="fas fa-user"></i>
                         <span>Profil Pegawai</span></a></li>
                         @endcan
 

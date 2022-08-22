@@ -9,7 +9,7 @@
  <body>
  
    <!-- ======= Top Bar ======= -->
-   <div id="topbar" class="fixed-top d-flex align-items-center topbar-inner-pages">
+   {{-- <div id="topbar" class="fixed-top d-flex align-items-center topbar-inner-pages">
      <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
        <div class="contact-info d-flex align-items-center">
          <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
@@ -19,7 +19,7 @@
          <a href="#about" class="scrollto">Get Started</a>
        </div>
      </div>
-   </div>
+   </div> --}}
  
    <!-- ======= Header ======= -->
    <header id="header" class="fixed-top">
@@ -47,7 +47,7 @@
 
     <div class="section-title">
       <h2>Gambar</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
     </div>
 
     <div class="row portfolio-container">

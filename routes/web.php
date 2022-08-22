@@ -69,7 +69,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('download', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show', 'as' => 'admin']);
 
         //profil pegawai
-        Route::resource('pegawai', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('/profpeg', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
 
         //banners
         Route::resource('/banner', App\Http\Controllers\Admin\BannerController::class, ['except' => 'show', 'as' => 'admin']);

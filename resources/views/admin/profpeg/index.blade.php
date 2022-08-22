@@ -15,12 +15,14 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.pegawai.index') }}" method="GET">
+
+                    <form action="{{ route('admin.profpeg.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 @can('downloads.create')
                                 <div class="input-group-prepend">
-                                    <a href="{{ route('admin.pegawai.create') }}" class="btn btn-primary"
+
+                                    <a href="{{ route('admin.profpeg.create') }}" class="btn btn-primary"
                                         style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                 </div>
                                 @endcan
@@ -51,7 +53,8 @@
                                     <td class="text-center"><img src="{{ Storage::url('public/files/'. $item->foto) }}" style="width: 10%; padding: 2%;"></td>
                                     <td class="text-center">
                                     @can('profpegs.edit')
-                                            <a href="{{ route('admin.pegawai.edit', $item->id) }}" class="btn btn-sm btn-primary">
+
+                                            <a href="{{ route('admin.profpeg.edit', $item->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         @endcan
@@ -99,7 +102,8 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("admin.pegawai.index") }}/"+id,
+
+                        url: "{{ route("admin.profpeg.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

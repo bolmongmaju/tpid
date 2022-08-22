@@ -55,13 +55,13 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{$post->title}}</a>
+                <a href="{{ route('berita-detail',$post->id) }}">{{$post->title}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$post->user->name}}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ \Carbon\Carbon::parse($post->created_at)->diffForhumans() }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{$post->user->name}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2020-01-01">{{ \Carbon\Carbon::parse($post->created_at)->diffForhumans() }}</time></a></li>
 
                 </ul>
               </div>

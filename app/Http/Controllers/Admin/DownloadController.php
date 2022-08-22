@@ -53,8 +53,8 @@ class DownloadController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'     => 'required',
-            'file'     => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
+            'nama' => 'required',
+            'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
         ]);
 
         if ($request->file('file')) {
