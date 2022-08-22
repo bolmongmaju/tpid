@@ -66,10 +66,10 @@ Route::prefix('admin')->group(function () {
         Route::resource('/news', App\Http\Controllers\Admin\NewsController::class, ['except' => 'show', 'as' => 'admin']);
 
         //download
-        Route::resource('/admin-download', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('download', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show', 'as' => 'admin']);
 
         //profil pegawai
-        Route::resource('/profil-pegawai', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('pegawai', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
 
         //banners
         Route::resource('/banner', App\Http\Controllers\Admin\BannerController::class, ['except' => 'show', 'as' => 'admin']);

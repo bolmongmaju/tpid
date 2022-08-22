@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfpegController extends Controller
 {
-                 /**
+    /**
      * __construct
      *
      * @return void
@@ -26,8 +26,8 @@ class ProfpegController extends Controller
      */
     public function index()
     {
-        $profpegs = Profpeg::latest()->when(request()->q, function($profpegs) {
-            $profpegs = $profpegs->where('nama', 'like', '%'. request()->q . '%');
+        $profpegs = Profpeg::latest()->when(request()->q, function ($profpegs) {
+            $profpegs = $profpegs->where('nama', 'like', '%' . request()->q . '%');
         })->paginate(10);
 
         return view('admin.profpeg.index', compact('profpegs'));
@@ -52,9 +52,9 @@ class ProfpegController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama'=>'required',
-            'jabatan'=>'required',
-            'nip'=>'required',
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'nip' => 'required',
             'foto' => 'required|file|mimes:jpg,jpeg,png|max:20048',
         ]);
 
@@ -69,12 +69,12 @@ class ProfpegController extends Controller
             'nip' => $request->input('nip')
         ]);
 
-        if($profpeg){
+        if ($profpeg) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.profil-pegawai.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+            return redirect()->route('admin.pegawai.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.profil-pegawai.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('admin.pegawai.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -86,7 +86,7 @@ class ProfpegController extends Controller
      */
     public function show(Profpeg $profpeg)
     {
-        return view('admin.profpeg.show',compact('profpeg'));
+        return view('admin.profpeg.show', compact('profpeg'));
     }
 
     /**
@@ -113,28 +113,28 @@ class ProfpegController extends Controller
             'nama' => 'required',
             'jabatan' => 'required',
             'nip' => 'required'
-            
+
         ]);
-  
+
         $input = $request->all();
-  
+
         if ($foto = $request->file('foto')) {
             $destinationPath = 'public/files';
             $profileFile = date('YmdHis') . "." . $foto->getClientOriginalExtension();
             $foto->move($destinationPath, $profileFile);
             $input['foto'] = "$profileFile";
-        }else{
+        } else {
             unset($input['foto']);
         }
-          
+
         $foto->update($input);
 
-        if($foto){
+        if ($foto) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.profil-pegawai.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+            return redirect()->route('admin.pegawai.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.profil-pegawai.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.pegawai.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
@@ -147,14 +147,14 @@ class ProfpegController extends Controller
     public function destroy($id)
     {
         $profpeg = Profpeg::findOrFail($id);
-        $foto = Storage::disk('local')->delete('public/files'.$profpeg->foto);
+        $foto = Storage::disk('local')->delete('public/files' . $profpeg->foto);
         $profpeg->delete();
 
-        if($profpeg){
+        if ($profpeg) {
             return response()->json([
                 'status' => 'success'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error'
             ]);

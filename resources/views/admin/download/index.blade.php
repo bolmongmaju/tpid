@@ -15,12 +15,12 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.admin-download.index') }}" method="GET">
+                    <form action="{{ route('admin.download.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 @can('downloads.create')
                                 <div class="input-group-prepend">
-                                    <a href="{{ route('admin.admin-download.create') }}" class="btn btn-primary"
+                                    <a href="{{ route('admin.download.create') }}" class="btn btn-primary"
                                         style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                 </div>
                                 @endcan
@@ -51,7 +51,7 @@
                                     <td class="text-center"><img src="/public/download-files/{{ $download->file }}" style="width: 100%"></td>
                                     <td class="text-center">
                                     @can('downloads.edit')
-                                            <a href="{{ route('admin.admin-download.edit', $download->id) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('admin.download.edit', $download->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         @endcan
@@ -99,7 +99,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("admin.admin-download.index") }}/"+id,
+                        url: "{{ route("admin.download.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

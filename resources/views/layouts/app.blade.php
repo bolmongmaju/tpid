@@ -102,7 +102,7 @@
                         @endcan
                         
                         @can('downloads.index')
-                            <li class="{{ setActive('admin/admin-download') }}"><a class="nav-link" href="{{ route('admin.admin-download.index') }}"><i class="fas fa-file-image"></i>
+                            <li class="{{ setActive('admin/download') }}"><a class="nav-link" href="{{ route('admin.download.index') }}"><i class="fas fa-file-image"></i>
                         <span>Files</span></a></li>
                         @endcan
 
@@ -136,7 +136,7 @@
                         @endcan
 
                         @can('profpegs.index')
-                        <li class="{{ setActive('admin/profil-pegawai') }}"><a class="nav-link" href="{{ route('admin.profil-pegawai.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/pegawai') }}"><a class="nav-link" href="{{ route('admin.pegawai.index') }}"><i class="fas fa-user"></i>
                         <span>Profil Pegawai</span></a></li>
                         @endcan
 

@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.profil-pegawai.update',$profpeg->id) }}" method="POST"
+                    <form action="{{ route('admin.pegawai.update', $profpeg->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -45,7 +45,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                             <button type="submit" class="btn btn-primary"
                                 onClick="return confirm('Ubah Data ?')">Submit</button>
-                            <a class="btn btn-light" href="{{ route('admin.profil-pegawai.index') }}">Cancel</a>
+                            <a class="btn btn-light" href="{{ route('admin.pegawai.index') }}">Cancel</a>
                         </div>
 
                     </form>

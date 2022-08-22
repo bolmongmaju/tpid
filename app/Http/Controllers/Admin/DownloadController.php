@@ -53,54 +53,26 @@ class DownloadController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required',
-            'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
+            'nama'     => 'required',
+            'file'     => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
         ]);
 
-        //upload image
-        $file = $request->file('file');
-        $file->storeAs('public/files', $file->hashName());
+        if ($request->file('file')) {
+            $file = $request->file('file')->store('assets/files', 'public');
+        }
 
         $download = Download::create([
-            'file' => $file->hashName(),
-            'nama' => $request->input('nama')
+            'nama' => $request->input('nama'),
+            'file' => ($request->file('file')) ? $file : null,
         ]);
 
         if ($download) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.admin-download.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('admin.download.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.admin-download.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('admin.download.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
-
-
-
-
-
-        // $request->validate([
-        //     'nama'=>'required',
-        //     'file' => 'required|file|mimes:pdf,docx,xlsx,doc,zip|max:200048',
-        // ]);
-
-        // $input = $request->all();
-
-        // if ($file = $request->file('file')) {
-        //     $destinationPath = 'public/download-files';
-        //     $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
-        //     $file->move($destinationPath, $profileFile);
-        //     $input['file'] = "$profileFile";
-        // }
-
-        // Download::create($input);
-
-        // if($input){
-        //     //redirect dengan pesan sukses
-        //     return redirect()->route('admin.admin-download.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        // }else{
-        //     //redirect dengan pesan error
-        //     return redirect()->route('admin.admin-download.index')->with(['error' => 'Data Gagal Disimpan!']);
-        // }
     }
 
     /**
@@ -135,28 +107,27 @@ class DownloadController extends Controller
     public function update(Request $request, Download $download)
     {
         $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'file' => 'file|mimes:pdf,docx,xlsx,doc,zip|max:2048',
         ]);
 
-        $input = $request->all();
 
-        if ($file = $request->file('file')) {
-            $destinationPath = 'public/download-files/';
-            $profileFile = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $profileFile);
-            $input['file'] = "$profileFile";
-        } else {
-            unset($input['file']);
+        if ($request->file('file')) {
+            Storage::delete($download->file);
+            $file = $request->file('file')->store('assets/files', 'public');
         }
 
-        $file->update($input);
+        $download->findOrFail($download->id)->update([
+            'nama' => $request->input('nama'),
+            'file' => ($request->file('file')) ? $file : $download->file,
+        ]);
 
-        if ($file) {
+        if ($download) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.admin-download.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.download.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.admin-download.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.download.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
@@ -169,7 +140,7 @@ class DownloadController extends Controller
     public function destroy($id)
     {
         $download = Download::findOrFail($id);
-        $file = Storage::disk('local')->delete('public/download-files/' . $download->file);
+        // $file = Storage::disk('local')->delete('assets/files' . $download->file);
         $download->delete();
 
         if ($download) {
