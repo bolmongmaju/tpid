@@ -113,7 +113,7 @@ class PageController extends Controller
     public function getDownload(Request $request, $id)
     {
         $entry = Download::where('id', '=', $id)->firstOrFail();
-        $pathToFile = storage_path() . "/app/public/files/" . $entry->file;
+        $pathToFile = storage_path() . "/app/public/" . $entry->file;
         return response()->download($pathToFile);
     }
 

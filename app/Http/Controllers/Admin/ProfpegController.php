@@ -71,10 +71,10 @@ class ProfpegController extends Controller
 
         if ($profpeg) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.pegawai.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('admin.profpeg.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.pegawai.index')->with(['error' => 'Data Gagal Disimpan!']);
+            return redirect()->route('admin.profpeg.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -131,10 +131,10 @@ class ProfpegController extends Controller
 
         if ($foto) {
             //redirect dengan pesan sukses
-            return redirect()->route('admin.pegawai.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('admin.profpeg.index')->with(['success' => 'Data Berhasil Diupdate!']);
         } else {
             //redirect dengan pesan error
-            return redirect()->route('admin.pegawai.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('admin.profpeg.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
 
