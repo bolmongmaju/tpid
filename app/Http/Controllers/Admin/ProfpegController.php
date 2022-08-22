@@ -92,7 +92,7 @@ class ProfpegController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Download  $download
+     * @param  \App\Models\Profpeg  $profpeg
      * @return \Illuminate\Http\Response
      */
     public function edit(Profpeg $profpeg)

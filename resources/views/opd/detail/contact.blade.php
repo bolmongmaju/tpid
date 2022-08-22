@@ -31,7 +31,7 @@
             <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Jam Kantor:</h4>
-                <p>{{ $contact->hai_kerja ?? null != null ? $contact->hari_kerja : 'Belum diisi' }}, Pukul {{ $contact->jam_buka ?? null != null ? $contact->jam_buka : '' }} - {{ $contact->jam_tutup ?? null != null ? $contact->jam_tutup : '' }} WITA</p>
+                <p>{{ $contact->hai_kerja ?? null != null ? $contact->hari_kerja : '' }} Pukul {{ $contact->jam_buka ?? null != null ? $contact->jam_buka : '' }} - {{ $contact->jam_tutup ?? null != null ? $contact->jam_tutup : '' }} WITA</p>
               </div>
 
           </div>

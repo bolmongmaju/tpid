@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-3 col-md-6 footer-links">
+      <div class="col-lg-4 col-md-6 footer-links">
         <h4>Link Terkait</h4>
         <ul>
           @forelse ($links as $link)
@@ -13,7 +13,7 @@
         </ul>
       </div>
 
-      <div class="col-lg-3 col-md-6 footer-links">
+      <div class="col-lg-4 col-md-6 footer-links">
         <h4>Layanan</h4>
         <ul>
           @forelse ($services as $service)
@@ -24,16 +24,16 @@
         </ul>
       </div>
 
-      <div class="col-lg-3 col-md-6 footer-contact">
+      {{-- <div class="col-lg-3 col-md-6 footer-contact">
         <h4>Visitor</h4>
         <p>
           <strong>Phone:</strong> +1 5589 55488 55<br>
           <strong>Email:</strong> info@example.com<br>
         </p>
 
-      </div>
+      </div> --}}
 
-      <div class="col-lg-3 col-md-6 footer-info">
+      <div class="col-lg-4 col-md-6 footer-info">
         <h3>Hubungi Kami</h3>
         <p>{{ $contact->alamat ?? null }} <br><br>
           <strong>Phone:</strong> {{ $contact->no_telp ?? null }}<br>

@@ -1,10 +1,16 @@
 <!-- ======= Portfoio Section ======= -->
-<section id="portfolio" class="portfoio">
+<section id="portfolio" class="portfoio" style="background-color: #f1f8ff">
+
+  <div class="section-title">
+    <h2>Infografis</h2>
+    <p>Infografis terbaru</p>
+  </div>
+
     <div class="container" data-aos="fade-up">
 
       <div class="row portfolio-container">
         @forelse ($infografis as $item)
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="col-lg-2 col-md-3 portfolio-item filter-app">
             <img src="{{ $item['image'] }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               {{-- <h4>App 1</h4> --}}

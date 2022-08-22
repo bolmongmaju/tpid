@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.profil-pegawai.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.profpeg.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -77,7 +77,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                             <button type="submit" class="btn btn-primary"
                                 onClick="return confirm('Simpan ?')">Simpan</button>
-                            <a class="btn btn-light" href="{{ route('admin.profil-pegawai.index') }}">Batal</a>
+                            <a class="btn btn-light" href="{{ route('admin.profpeg.index') }}">Batal</a>
                         </div>
 
                     </form>

@@ -111,13 +111,13 @@ Route::prefix('admin')->group(function () {
         Route::resource('/news', App\Http\Controllers\Admin\NewsController::class, ['except' => 'show', 'as' => 'admin']);
 
         //download
-        Route::resource('/admin-download', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('/file', App\Http\Controllers\Admin\FileController::class, ['except' => 'show', 'as' => 'admin']);
 
         //profil pegawai
-        Route::resource('/profil-pegawai', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('/profpeg', App\Http\Controllers\Admin\ProfpegController::class, ['except' => 'show', 'as' => 'admin']);
 
         //file
-        Route::resource('/file', App\Http\Controllers\Admin\FileController::class, ['except' => 'show', 'as' => 'admin']);
+        Route::resource('/filedownload', App\Http\Controllers\Admin\DownloadController::class, ['except' => 'show', 'as' => 'admin']);
 
         //leaders
         Route::resource('/leader', App\Http\Controllers\Admin\LeaderController::class, ['except' => 'show', 'as' => 'admin']);

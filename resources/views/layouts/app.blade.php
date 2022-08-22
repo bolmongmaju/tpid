@@ -101,13 +101,13 @@
                         <span>Banner</span></a></li>
                         @endcan
 
-                        @can('files.index')
+                        {{-- @can('files.index')
                             <li class="{{ setActive('admin/file') }}"><a class="nav-link" href="{{ route('admin.file.index') }}"><i class="fas fa-file-image"></i>
                         <span>Files</span></a></li>
-                        @endcan
+                        @endcan --}}
                         
                         @can('downloads.index')
-                            <li class="{{ setActive('admin/download') }}"><a class="nav-link" href="{{ route('admin.admin-download.index') }}"><i class="fas fa-file-image"></i>
+                            <li class="{{ setActive('admin/filedownload') }}"><a class="nav-link" href="{{ route('admin.filedownload.index') }}"><i class="fas fa-file-image"></i>
                         <span>Download</span></a></li>
                         @endcan
 
@@ -146,7 +146,7 @@
                         @endcan
 
                         @can('profpegs.index')
-                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('admin.profil-pegawai.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('admin.profpeg.index') }}"><i class="fas fa-user"></i>
                         <span>Profil Pegawai</span></a></li>
                         @endcan
 
