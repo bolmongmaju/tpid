@@ -194,4 +194,9 @@ class PageController extends Controller
 
         return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
+
+    public function eventDetail(Event $events){
+          
+        return view('opd/detail/agenda-detail',compact('events'));
+    }
 }

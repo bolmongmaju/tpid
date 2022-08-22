@@ -132,8 +132,10 @@
       </div>
 
     </section><!-- End Recent Blog Posts Section -->
-
+    @forelse ($events as $item)
     @include('opd.detail.agenda')
+    @empty
+    @endforelse
 
     @include('opd.detail.infografis')
 

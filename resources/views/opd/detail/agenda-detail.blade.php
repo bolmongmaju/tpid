@@ -54,7 +54,7 @@
                     <div class="col-md-6 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box">
                             {{-- <i class="bi bi-card-checklist"></i> --}}
-                            <h4><a href="#">Hari dan tanggal</a></h4>
+                            <h4 style="color: #054a85;">Hari dan tanggal</h4>
                             <p>Hari - {{$events->hari}}</p>
                             <p>Tanggal - {{$events->date}}</p>
                             <p>Jam - {{$events->time}}</p>
@@ -65,7 +65,7 @@
                         data-aos-delay="200">
                         <div class="icon-box">
                             {{-- <i class="bi bi-bar-chart"></i> --}}
-                            <h4><a href="#">Keterangan</a></h4>
+                            <h4 style="color: #054a85;">Keterangan</h4>
                             <p>{!! $events->content !!}</p>
                         </div>
                     </div>
