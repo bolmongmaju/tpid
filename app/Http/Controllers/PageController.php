@@ -41,7 +41,7 @@ class PageController extends Controller
 
         $profil = Profile::select('nama_opd', 'short_name', 'kata_sambutan', 'foto_pimpinan', 'logo', 'favicon', 'maklumat')->find(1);
 
-        $infografis = Http::get('http://bolmongkab.go.id/api/infografis')['data']['data'];
+        // $infografis = Http::get('http://bolmongkab.go.id/api/infografis')['data']['data'];
 
         return view('opd.index', compact(
             'posts',
@@ -49,7 +49,7 @@ class PageController extends Controller
             'sliders',
             'services',
             'postssatu',
-            'infografis',
+            // 'infografis',
             'links',
             'contact',
             'sosmeds',
@@ -127,7 +127,7 @@ class PageController extends Controller
         return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
 
-    public function beritaDetail(Request $request, $id)
+    public function beritaDetail(Request $request, $slug)
     {
         if ($request->has('cari')) {
             $kategori = Category::latest()->get();
@@ -135,24 +135,24 @@ class PageController extends Controller
             $sidebar = News::skip(5)->Paginate(5);
             $posts = News::where('title', 'LIKE', '%' . $request->cari . '%')->with('kategori')->get();
 
-            $expiresAt = now()->addHours(3);
-            views($id)
-                ->cooldown($expiresAt)
+            // $expiresAt = now()->addHours(3);
+            views($slug)
+                // ->cooldown($expiresAt)
                 ->record();
 
-            return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
+            return view('opd.detail.berita', compact('posts', 'kategori', 'sidebar', 'tags'));
         } else {
             $kategori = Category::latest()->simplePaginate(5);
-            $posts = News::where('id', $id)->firstOrFail();
+            $posts = News::where('slug', $slug)->firstOrFail();
             $tags = Tag::latest()->get();
             $sidebar = News::skip(5)->Paginate(5);
 
-            $expiresAt = now()->addHours(3);
+            // $expiresAt = now()->addHours(3);
             views($posts)
-                ->cooldown($expiresAt)
+                // ->cooldown($expiresAt)
                 ->record();
 
-            return view('opd/detail/berita-detail', compact('posts', 'sidebar', 'kategori', 'tags'));
+            return view('opd.detail.berita-detail', compact('posts', 'sidebar', 'kategori', 'tags'));
         }
     }
 
@@ -195,8 +195,9 @@ class PageController extends Controller
         return view('opd/detail/berita', compact('posts', 'kategori', 'sidebar', 'tags'));
     }
 
-    public function eventDetail(Event $events){
-          
-        return view('opd/detail/agenda-detail',compact('events'));
+    public function eventDetail(Event $events)
+    {
+
+        return view('opd/detail/agenda-detail', compact('events'));
     }
 }

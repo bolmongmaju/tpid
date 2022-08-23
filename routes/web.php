@@ -17,15 +17,15 @@ Route::get('/dasar-hukum', [App\Http\Controllers\PageController::class, 'dasarhu
 Route::get('/event', [App\Http\Controllers\PageController::class, 'event']);
 Route::get('/event-detail/{events:id}', [App\Http\Controllers\PageController::class, 'eventDetail']);
 Route::get('/berita', [App\Http\Controllers\PageController::class, 'berita']);
-route::get('/berita-detail/{berita:id}', [App\Http\Controllers\PageController::class, 'beritaDetail'])->name('berita-detail');
-route::get('/berita-cari', [App\Http\Controllers\Pagecontroller::class, 'hascarberita']);
+Route::get('/news/detail/{news:slug}', [App\Http\Controllers\PageController::class, 'beritaDetail'])->name('berita-detail');
+Route::get('/berita-cari', [App\Http\Controllers\Pagecontroller::class, 'hascarberita']);
 
 Route::get('/cari-kategori/{category:id}', [App\Http\Controllers\PageController::class, 'kategori'])->name('cari-kategori');
 Route::get('/cari-tag/{tag:id}', [App\Http\Controllers\PageController::class, 'tag'])->name('cari-tag');
 
 Route::get('/download', [App\Http\Controllers\PageController::class, 'download']);
-route::get('/getdownload/{downloads:id}', [App\Http\Controllers\PageController::class, 'getDownload'])->name('getdownload');
-route::get('/event-detail/{event:id}', [App\Http\Controllers\PageController::class, 'eventDetail'])->name('event-detail');
+Route::get('/getdownload/{downloads:id}', [App\Http\Controllers\PageController::class, 'getDownload'])->name('getdownload');
+Route::get('/event-detail/{event:id}', [App\Http\Controllers\PageController::class, 'eventDetail'])->name('event-detail');
 
 Auth::routes(['register' => false]);
 

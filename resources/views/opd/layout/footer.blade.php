@@ -57,6 +57,6 @@
     &copy; Copyright {{ date('Y') }} <strong><span>{{ $profil->short_name ?? null != null ? Str::upper($profil->short_name) : '' }}</span></strong>. All Rights Reserved
   </div>
   <div class="credits">
-    Designed by <a href="https://diskominfo.go.id/">Diskominfo Bolaang Mongondow</a>
+    Designed by <a href="https://diskominfo.go.id/" style="color: #fff;">Diskominfo Bolaang Mongondow</a>
   </div>
 </div>

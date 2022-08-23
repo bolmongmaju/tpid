@@ -122,7 +122,7 @@
               </div>
               <h3 class="post-title-recent">{{ $post->title }} </h3>
               <p class="recent-blog-body">{{ strip_tags($post->body) }}</p>
-              <a href="{{ route('berita-detail',$post->id) }}" class="readmore stretched-link"><span>Baca</span><i class="bi bi-arrow-right"></i></a>
+              <a href="{{ route('berita-detail',$post->slug) }}" class="readmore stretched-link"><span>Baca</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           @endforeach
@@ -137,7 +137,7 @@
     @empty
     @endforelse
 
-    @include('opd.detail.infografis')
+    {{-- @include('opd.detail.infografis') --}}
 
     @include('opd.detail.contact')
 
