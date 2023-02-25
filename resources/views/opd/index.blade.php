@@ -27,14 +27,14 @@
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="dua-layanan">
                 {{-- <i class="bi bi-card-checklist"></i> --}}
-                <h4><a style="color: #f1f8ff" href="#">JDIH</a></h4>
-                <p class="satu-baris">Jaringan Dokumentasi dan Informasi Hukum</p>
+                <h4><a style="color: #f1f8ff" href="https://bolmongkab.go.id">BOLMONGKAB</a></h4>
+                <p class="satu-baris">Kabupaten Bolaang Mongondow</p>
               </div>
           </div>
   
           <div class="col-6" data-aos="fade-up" data-aos-delay="100">
             <div class="dua-layanan" style="background-color: rgb(36, 36, 36);">
-              <h4><a style="color: #f1f8ff" href="#">PPID</a></h4>
+              <h4><a style="color: #f1f8ff" href="https://news.bolmongkab.go.id">BERITA</a></h4>
               <p class="satu-baris">(Badan publik dapat mempublikasi informasi yang dikuasai yang selanjutnya tersusun sebagai DIP secara otomatis.)</p>
             </div>
           </div>
